@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Szó Ami Szó G&D Kézműves Cukrászda — Kézműves sütemények a Balaton partján, minden reggel frissen sütve.">
+  <meta name="description" content="Szó Ami Szó G&D — Kézműves cukrászda és pékség Balatonkenesén. Magyarország legjobb péksége 2025 (Street Kitchen Guide). Naponta egyszer sütve, frissen. Kétszeres Magyarország Tortája győztes.">
   <title>Szó Ami Szó — G&D Kézműves Cukrászda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -382,7 +382,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#story"        data-i18n="nav_story">Történetünk</a></li>
-    <li><a href="#craft"        data-i18n="nav_craft">Díjaink</a></li>
+    <li><a href="#press"        data-i18n="nav_awards">Elismerések</a></li>
     <li><a href="#menu"         data-i18n="nav_menu">Napi Menü</a></li>
     <li><a href="#gallery"      data-i18n="nav_gallery">Galéria</a></li>
     <li><a href="#bistro"       data-i18n="nav_bistro">Bisztró</a></li>
@@ -402,7 +402,7 @@
 
 <div class="nav-mobile-menu" id="mobileMenu">
   <a href="#story"   data-i18n="nav_story"   onclick="closeMobileMenu()">Történetünk</a>
-  <a href="#craft"   data-i18n="nav_craft"   onclick="closeMobileMenu()">Díjaink</a>
+  <a href="#press"   data-i18n="nav_awards"  onclick="closeMobileMenu()">Elismerések</a>
   <a href="#menu"    data-i18n="nav_menu"    onclick="closeMobileMenu()">Napi Menü</a>
   <a href="#gallery" data-i18n="nav_gallery" onclick="closeMobileMenu()">Galéria</a>
   <a href="#bistro"  data-i18n="nav_bistro"  onclick="closeMobileMenu()">Bisztró</a>
@@ -421,8 +421,8 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1 class="hero-headline" data-i18n="hero_headline">Amit a kezünk csinál, azt a szívünk érzi.</h1>
-    <p  class="hero-subline"  data-i18n="hero_subline">Kézműves sütemények a Balaton partján&nbsp;— minden reggel frissen sütve.</p>
+    <h1 class="hero-headline" data-i18n="hero_headline">Naponta egyszer. Hajnaltól.</h1>
+    <p  class="hero-subline"  data-i18n="hero_subline">Kézműves sütemények és kovászos kenyerek a Balatonon — minden reggel, egyszer sütve.</p>
     <div class="hero-cta-wrap">
       <a href="#visit" class="btn-cta btn-cta--inverse" data-i18n="hero_cta">Látogatás</a>
     </div>
@@ -518,7 +518,7 @@
 <section id="craft">
   <div class="container">
     <div class="awards-intro">
-      <span class="section-label reveal" data-i18n="craft_label" id="craft-heading">Díjaink</span>
+      <span class="section-label reveal" data-i18n="craft_label" id="craft-heading">Díjnyertes Termékeink</span>
       <h2 class="section-headline reveal reveal-delay-1" data-i18n="craft_headline">Amit a zsűri is megmondott.</h2>
     </div>
     <div class="awards-list">
@@ -594,7 +594,7 @@
   <div class="container">
     <div class="gallery-intro">
       <span class="section-label reveal" data-i18n="gallery_label">Galéria</span>
-      <h2 class="section-headline reveal reveal-delay-1" data-i18n="gallery_headline">Amit a szem lát, a kéz tudja.</h2>
+      <h2 class="section-headline reveal reveal-delay-1" data-i18n="gallery_headline">Betekintés a műhelybe.</h2>
     </div>
   </div>
   <div class="gallery-scroll-wrap">
@@ -777,20 +777,68 @@ const SHEET_CSV_URL = 'REPLACE_WITH_GOOGLE_SHEETS_CSV_URL';
 ================================================================ */
 const TESTIMONIALS = {
   hu: [
-    { stars: 5, text: 'Évek óta járunk ide minden nyáron. A croissant itt a legjobb, amit valaha ettem Magyarországon — kívül ropogós, belül vajas és könnyű. Nem lehet visszatartani magunkat.', author: 'Kovács Réka — Budapest' },
-    { stars: 5, text: 'A rétes láttán azonnal tudtam, hogy ez más. Vékony, mint a selyem, a töltelék nem édes a kelleténél. Az anyuka receptje nyilvánvalóan megingathatatlan alapokon áll.', author: 'Horváth László — Veszprém' },
-    { stars: 5, text: 'Reggel 7-kor értünk oda, és már sütkérezett a nap a Balatonon. A meleg kakaós csiga és a kávé mellé nem kell semmi más. Tökéletes nyári reggel.', author: 'Németh Zsuzsa — Győr' },
-    { stars: 5, text: 'Kézműves pékség a javából — nem közhely, hanem tény. A kovászos kenyér héja egyenesen emlékezetes. Haza is viszünk minden alkalommal.', author: 'Fekete Gábor — Pécs' },
-    { stars: 5, text: 'A linzer olyan, amilyennek lennie kell: omló, nem túl édes, és pontosan olyan vastag, hogy minden egyes falat kielégítő legyen. Kötelező megállás a Balatonon.', author: 'Takács Ildikó — Székesfehérvár' },
-    { stars: 5, text: 'Ritkán adok ötcsillagot, de itt minden részlet megérdemli. A személyzet figyelmes, a sütemények frissek, és az egész hely valahogy meleget sugároz. Visszajövünk.', author: 'Balogh Péter — Debrecen' },
+    { stars: 5, text: 'A környék legjobb kovászos kenyere itt kapható. Ropogós héj, puha bélzet, pont úgy, ahogy a nagykönyvben meg van írva.', author: 'Kovács Gábor' },
+    { stars: 5, text: 'Végre egy hely, ahol nem spórolnak a minőségen. A teljes kiőrlésű pékáruk is fantasztikusak, látszik a szakértelem.', author: 'Varga Zoltán' },
+    { stars: 5, text: 'A pisztáciás croissant egyszerűen leírhatatlan. Gazdag töltelék, vajas tészta, igazi gasztronómiai élmény minden falat.', author: 'Molnár Anikó' },
+    { stars: 5, text: 'Minden reggel ide járunk friss kenyérért, amíg a Balatonon nyaralunk. Soha nem csalódtunk még a minőségben.', author: 'Horváth Péter' },
+    { stars: 5, text: 'Kiváló minőségű alapanyagok, tiszta ízek. A kovászos kenyerük napokig friss marad, bár nálunk általában már aznap elfogy.', author: 'Szabó László' },
+    { stars: 5, text: 'A kakaós csiga olyan, amilyennek gyerekkorunkban képzeltük: rengeteg töltelék és tökéletes tészta.', author: 'Papp Gergely' },
+    { stars: 5, text: 'Csodálatos illatok fogadják az embert már a bejáratnál. A bagettjük pedig vetekszik a legjobb francia pékségekével.', author: 'Kiss Melinda' },
+    { stars: 5, text: 'Igazi kézműves pékség, ahol szívvel-lélekkel készül minden. A magvas kenyerük a személyes kedvencem.', author: 'Nagy Attila' },
+    { stars: 5, text: 'Ritka az ilyen színvonalas pékség a tóparton. Látszik, hogy nem tömegtermelésről, hanem minőségi munkáról van szó.', author: 'Farkas István' },
+    { stars: 5, text: 'A sajtos pogácsa és a sós stangli is ötcsillagos. Mindig friss és meleg, amikor érkezünk.', author: 'Tóth Eszter' },
+    { stars: 5, text: 'A reggeli kínálat lenyűgöző. Az Eggs Benedict tökéletesen volt elkészítve, a hollandi mártás selymes és ízletes.', author: 'Bíró Tamás' },
+    { stars: 5, text: 'Nagyszerű hely egy ráérős szombati reggelihez. A kávé kiváló, a kiszolgálás pedig figyelmes és gyors.', author: 'Simon Judit' },
+    { stars: 5, text: 'A kézműves hamburgerek is megérnek egy próbát. A zsemle helyben készül, a hús pedig szaftos és prémium minőségű.', author: 'Takács Ferenc' },
+    { stars: 5, text: 'Nagyon tetszik a belső tér hangulata és a terasz is. A reggeli tál bőséges volt és tele minőségi finomságokkal.', author: 'Balogh Adrienn' },
+    { stars: 5, text: 'A bundás kenyér gourmet változata valami egészen elképesztő. Modern köntösbe öltöztetett hagyományos ízek.', author: 'Mészáros Gábor' },
+    { stars: 5, text: 'Barátságos környezet, mosolygós személyzet. A rántotta friss tojásból készült, nem sajnálták belőle a feltéteket sem.', author: 'Kelemen Rita' },
+    { stars: 5, text: 'Kiváló brunch helyszín Kenesén. A kínálat változatos, a tálalás pedig esztétikus és igényes.', author: 'Juhász Márk' },
+    { stars: 5, text: 'A házi limonádéjuk nagyon frissítő, a szendvicsek pedig tele vannak friss zöldségekkel és jóféle sonkákkal.', author: 'Fekete Zsófia' },
+    { stars: 5, text: 'Profi vendéglátás. Az adagok pont megfelelőek, az árak pedig tükrözik a kapott prémium minőséget.', author: 'Bodnár Imre' },
+    { stars: 5, text: 'Minden alkalommal felfedezünk valami újdonságot az étlapon. Látszik, hogy folyamatosan fejlesztenek és figyelnek a részletekre.', author: 'László Viktória' },
+    { stars: 5, text: 'A sütemények nemcsak gyönyörűek, de az ízük is harmonikus. Nem túl édesek, érezni bennük a valódi gyümölcsöt és csokoládét.', author: 'Vincze Balázs' },
+    { stars: 5, text: 'A francia stílusú desszertek kedvelőinek kötelező hely. A mousse torták állaga és ízvilága is nemzetközi szintű.', author: 'Hegedűs Dóra' },
+    { stars: 5, text: 'Kedves, pörgős csapat dolgozik itt. Annak ellenére, hogy sokan voltak, nem kellett sokat várnunk a rendelésre.', author: 'Rácz János' },
+    { stars: 5, text: 'A mentes sütemények között is találtam olyat, ami teljes értékű élményt nyújtott. Köszönet érte!', author: 'Szalai Krisztina' },
+    { stars: 5, text: 'Kulturált környezet, tiszta mosdó, profi személyzet. Ilyennek kellene lennie minden vendéglátóhelynek a Balatonnál.', author: 'Németh András' },
+    { stars: 5, text: 'Unokákkal voltunk, és mindenki talált kedvére valót. A fagylaltjuk is kiemelkedő, természetes ízű.', author: 'Kovácsné Erzsébet' },
+    { stars: 5, text: 'Egy kerékpártúra során álltunk meg pihenni. A kávé és a süti pont megadta azt az energiát, amire szükségünk volt.', author: 'Gál Sándor' },
+    { stars: 5, text: 'A sajttortájuk a legjobb, amit valaha ettem. Krémes, lágy és az alja is tökéletesen omlós.', author: 'Pásztor Erika' },
+    { stars: 5, text: 'Látszik a tulajdonosok elhivatottsága. A minőség állandó, bárki is legyen éppen a pult mögött.', author: 'Majoros Tibor' },
+    { stars: 5, text: 'Igazi gyöngyszem Balatonkenese szívében. Aki szereti a minőségi pékárut és a finom desszerteket, ne hagyja ki!', author: 'Somogyi Károly' },
   ],
   en: [
-    { stars: 5, text: 'We have been coming here every summer for years. The croissant is the finest I have had in Hungary — shattering crust, buttery open crumb. Impossible to stop at one.', author: 'Sophie Müller — Vienna' },
-    { stars: 5, text: 'The strudel alone is worth the detour. Paper-thin pastry, balanced filling, nothing oversweetened. You can tell this recipe has never been tampered with.', author: 'James Whitfield — London' },
-    { stars: 5, text: 'We arrived at 7am to the sound of the lake waking up. A warm chocolate swirl and coffee on the terrace — nothing more is needed. An honest, perfect morning.', author: 'Anna Bergström — Stockholm' },
-    { stars: 5, text: 'The sourdough crust is genuinely memorable. Dense, aromatic, with real depth. We brought two loaves home and regretted not taking more.', author: 'Thomas Bauer — Munich' },
-    { stars: 5, text: 'The linzer cookies are exactly what they should be: crumbling, not too sweet, and each one feels considered. A mandatory stop on any Balaton visit.', author: 'Claire Dupont — Lyon' },
-    { stars: 5, text: 'Every detail is right — fresh stock, attentive staff, an atmosphere that manages to feel both refined and warm. We will be back without question.', author: 'Marco Ricci — Milan' },
+    { stars: 5, text: 'The best sourdough bread in the area. Crisp crust, soft crumb — exactly as it should be.', author: 'Kovács Gábor' },
+    { stars: 5, text: 'Finally a place that does not cut corners on quality. The wholegrain loaves are outstanding too.', author: 'Varga Zoltán' },
+    { stars: 5, text: 'The pistachio croissant is simply indescribable. Rich filling, buttery dough — a genuine gastronomic experience.', author: 'Molnár Anikó' },
+    { stars: 5, text: 'We come every morning for fresh bread while staying at Balaton. Never once disappointed.', author: 'Horváth Péter' },
+    { stars: 5, text: 'Exceptional ingredients, clean flavours. The sourdough stays fresh for days — though ours is always gone the same day.', author: 'Szabó László' },
+    { stars: 5, text: 'The chocolate swirl is exactly as we imagined it in childhood: plenty of filling, perfect dough.', author: 'Papp Gergely' },
+    { stars: 5, text: 'The scent greets you at the entrance. Their baguette holds its own against the best French bakeries.', author: 'Kiss Melinda' },
+    { stars: 5, text: 'A genuine artisan bakery. The seeded loaf is my personal favourite.', author: 'Nagy Attila' },
+    { stars: 5, text: 'Rare to find this level of quality on the lakeshore. Clearly craft, not mass production.', author: 'Farkas István' },
+    { stars: 5, text: 'The cheese scone and salty sticks are five stars too. Always fresh and warm when we arrive.', author: 'Tóth Eszter' },
+    { stars: 5, text: 'The breakfast menu is impressive. The Eggs Benedict was perfectly made — silky, flavourful hollandaise.', author: 'Bíró Tamás' },
+    { stars: 5, text: 'A wonderful spot for a slow Saturday breakfast. Excellent coffee, attentive and quick service.', author: 'Simon Judit' },
+    { stars: 5, text: 'The brioche bun is made in-house, the meat juicy and premium. Worth ordering.', author: 'Takács Ferenc' },
+    { stars: 5, text: 'The interior and terrace are both beautiful. The breakfast plate was generous and full of quality.', author: 'Balogh Adrienn' },
+    { stars: 5, text: 'The gourmet French toast is something else entirely. Traditional flavours in a modern form.', author: 'Mészáros Gábor' },
+    { stars: 5, text: 'Friendly atmosphere, smiling staff. The omelette was made from fresh eggs — nothing held back on the toppings.', author: 'Kelemen Rita' },
+    { stars: 5, text: 'Excellent brunch spot in Kenese. Varied menu, beautiful and considered presentation.', author: 'Juhász Márk' },
+    { stars: 5, text: 'Their homemade lemonade is very refreshing. The sandwiches are packed with fresh vegetables and good ham.', author: 'Fekete Zsófia' },
+    { stars: 5, text: 'Professional hospitality. Portions are just right, prices reflect the premium quality you receive.', author: 'Bodnár Imre' },
+    { stars: 5, text: 'We discover something new on the menu every visit. Clearly a team that keeps developing and cares about the details.', author: 'László Viktória' },
+    { stars: 5, text: 'The pastries are not only beautiful but harmoniously flavoured. Not too sweet — you can taste real fruit and chocolate.', author: 'Vincze Balázs' },
+    { stars: 5, text: 'Essential for lovers of French-style desserts. The mousse cakes are internationally competitive.', author: 'Hegedűs Dóra' },
+    { stars: 5, text: 'A friendly, energetic team. Despite being busy, we did not wait long at all.', author: 'Rácz János' },
+    { stars: 5, text: 'Even among the gluten-free options I found something that felt like a full experience. Thank you.', author: 'Szalai Krisztina' },
+    { stars: 5, text: 'Cultured environment, clean facilities, professional staff. Every venue at Balaton should be like this.', author: 'Németh András' },
+    { stars: 5, text: 'We came with the grandchildren and everyone found something they loved. The ice cream is outstanding too.', author: 'Kovácsné Erzsébet' },
+    { stars: 5, text: 'We stopped during a cycling tour. The coffee and pastry gave us exactly the energy we needed.', author: 'Gál Sándor' },
+    { stars: 5, text: 'The best cheesecake I have ever had. Creamy, light, and the base is perfectly crumbly.', author: 'Pásztor Erika' },
+    { stars: 5, text: 'The owners\' dedication is visible. The quality is consistent, regardless of who is behind the counter.', author: 'Majoros Tibor' },
+    { stars: 5, text: 'A true gem in the heart of Balatonkenese. Do not miss it if you love quality bread and fine pastries.', author: 'Somogyi Károly' },
   ]
 };
 
@@ -865,45 +913,45 @@ const MENU_PLACEHOLDER = {
 ================================================================ */
 const LANG = {
   hu: {
-    nav_story:'Történetünk', nav_craft:'Díjaink', nav_menu:'Napi Menü', nav_gallery:'Galéria', nav_bistro:'Bisztró', nav_visit:'Látogatás',
-    hero_headline:'Amit a kezünk csinál, azt a szívünk érzi.',
-    hero_subline:'Kézműves sütemények a Balaton partján\u00A0— minden reggel frissen sütve.',
+    nav_story:'Történetünk', nav_craft:'Elismerések', nav_menu:'Napi Menü', nav_gallery:'Galéria', nav_bistro:'Bisztró', nav_visit:'Látogatás',
+    hero_headline:'Naponta egyszer. Hajnaltól.',
+    hero_subline:'Kézműves sütemények és kovászos kenyerek a Balatonon — minden reggel, egyszer sütve.',
     hero_cta:'Látogatás',
     story_label:'Történetünk',
-    story_headline:'Egy anya és két fia. Egyetlen közös elhatározás.',
-    story_body1:'Katalin pszichológusként értett az emberek lelkéhez — és tudta, hogy az asztal az, ahol az érzelmek igazán megmutatkoznak. Két fia, Gellért és Dániel, ugyanezt a precizitást vitték tovább, csak lisztes kézzel: az egyik a cukrászat, a másik a kenyérsütés nyelvén. A G&D neve sem véletlen — Gellért és Dániel kezdőbetűi, egy közös műhely mögött, amelyet a Szó Ami Szó — az őszinteség, a minőség iránti elkötelezettség — szelleme tart össze.',
-    story_quote:'„A Szó Ami Szó nem reklámszöveg. Ígéret — amelyet minden reggel hajnalban be kell tartani."',
-    story_body2:'Hajnalban, amikor a Balaton még csendes, a dagasztás már elkezdődött. Minden tétel naponta egyszer készül — ami délelőtt nem fogy el, azt másnap nem kínáljuk újra. A kertben, fák árnyékában, ahol vendégeink reggeliznek, az idő másképp telik — lassabban, pontosan úgy, ahogy a legjobb süteményeknek is kell.',
-    press_label:'Elismerések', press_headline:'Ahogy mások látnak minket.',
-    press_emirates:'Az egymást követő Magyarország Tortája-győzelmek után az Emirates Airlines felkereste Szó Gellértet — és csokoládétortáit felszolgálták a légitársaság nemzetközi járatain. Egyes alkotások határa nem a határnál van.',
-    press_sk_title:'Az év péksége', press_sk_sub:'51 jelölt közül. A Street Kitchen és a foodora Selection közös ítélete — egyértelmű.',
+    story_headline:'Egy anya, két fiú. Egy műhely, egy ígéret.',
+    story_body1:'Katalin pszichológus volt — értett az emberekhez, és tudta, hogy az asztalnál a legőszintébb pillanatok játszódnak. Két fia más úton indult el. Gellért főiskolát járt, majd egyik nap felhívta az anyját: el akarja készíteni az ország legjobb fagylaltját, mert ezt álmodta. Nem várt: másnap Milánóba utazott, profiknál tanult. Dániel beleszeret a kovász logikájába. A G&D — Gellért és Dániel kezdőbetűi — ma három helyszín, egy salgótarjáni műhely és közel egy évtizednyi szakma mögött áll.',
+    story_quote:'„Négy nappal azelőtt, hogy első tortáját megsütötte, nevezést adott be az Ország Tortája versenyre. Az első és a második helyet is hazahozta."',
+    story_body2:'Hajnalban, amikor a Balaton még csendes, a dagasztás már elkezdődött. Minden tétel naponta egyszer készül. Ami délelőtt elfogy, azt másnap frissen sütik. Ami nem fogy el, azt másnap nem kínálják. A kertben, ahol vendégeink reggeliznek, ez a rend érezhető — nem hirdetik, csak csinálják.',
+    press_label:'Elismerések', press_headline:'Amit mások mondtak.',
+    press_emirates:'A kétszeres Magyarország Tortája-győzelem után az Emirates Airlines felkereste Szó Gellértet. Csokoládétortáit ezt követően a légitársaság nemzetközi járatain szolgálták fel.',
+    press_sk_title:'Az év péksége', press_sk_sub:'Street Kitchen Guide 2025 — több mint 700 tesztelt vendéglátóhely közül. A szakértő zsűri ítélete.',
     press_quote:'„Ezért a croissant-ért megéri Balatonkeneséig utazni."',
-    press_guide:'Dorozsmai Endre neves gasztronómiai kritikus minden kategóriában maximumpontnál is több ponttal értékelte a balatonkenesei helyszínt. Ritka kitüntetés az egész Balaton-parton.',
-    press_tripadvisor:'Amerikai vendégeink, akik pékségeket és kávéházakat jártak be tucatnyi országban, a következőt írták: a G&D az élmezőnybe tartozik — bárhol a világon.',
+    press_guide:'Dorozsmai Endre gasztronómiai kritikus, a Kárpát-medencei Étterem Kalauz szerzője minden kategóriában 5+ ponttal értékelte a balatonkenesei helyszínt — összélmény, konyha, atmoszféra, kiszolgálás. Ritka minősítés a Balaton-parton.',
+    press_tripadvisor:'Tucatnyi ország pékségeit és kávéházait bejárt vendégeink a G&D-t a világ élmezőnyébe sorolták — bárhol a világon mérhető szintként.',
     press_jury_source:'Magyarország Tortája — zsűri',
-    press_jury:'Egymást követő kétszeres győzelem után Szó Gellértet felkérték zsűritagnak — Sárközi Ákos Michelin-csillagos séf oldalán. Az ítélkezés oldalára állt.',
-    craft_label:'Elismeréseink', craft_headline:'Amit a zsűri is megmondott.',
-    award_2015_award:'Magyarország Tortája', award_2015_name:'Pannonhalmi sárgabarack-pálinkás karamelltorta', award_2015_desc:'Ez a torta hozta meg az országos hírnevet a cukrászdának. A Pannonhalmi sárgabarack-pálinka mélysége és a karamell egyensúlya — egy olyan alkotás, amelyet a szakma azóta sem felejtett el.',
-    award_2016_award:'Magyarország Tortája', award_2016_name:'Őrség zöld aranya', award_2016_desc:'A tökmagos-málnás torta máig az egyik legszeretettebb alkotásuk — sokak szerint az egyik legjobb Magyarország Tortája-győztes, amelyet valaha ítéltek oda.',
-    award_2017_award:'1. hely — Kenyérlelke', award_2017_name:'Az ország legjobb croissant-ja', award_2017_desc:'A Kenyérlelke Fesztivál szakmai zsűrije ítélte oda nekik az első helyet. 72 óra laminálás, magyar vaj — és egy kéreg, amelyet hallani.',
-    award_2025_award:'Az év péksége 2025', award_2025_name:'Street Kitchen / foodora Selection', award_2025_desc:'A G&D nyerte el az ország legjobb pékségének járó elismerést 51 jelölt közül. Az ítélet egyértelmű volt.',
-    bistro_label:'Bisztró', bistro_headline:'Nem csak reggel.', bistro_body:'A cukrászda reggelének minősége után a nap többi része is megér valamit. A G&amp;D Bisztró azt az igényességet viszi tovább ebédre és vacsorára, amelyet a croissant-ban megszoktak — friss, szezonális fogások, gondosan megkomponált tányérok, meleg terek. Foglaljon asztalt és töltse velünk az egész napot.',
+    press_jury:'A kétszeres győzelem után Szó Gellértet meghívták zsűritagnak — Sárközi Ákos Michelin-csillagos séf oldalán. Az ítélkezés oldalára állt.',
+    craft_label:'Elismerések', craft_headline:'Amit a zsűri ítélt.',
+    award_2015_award:'Magyarország Tortája', award_2015_name:'Pannonhalmi sárgabarack-pálinkás karamelltorta', award_2015_desc:'Az első nevezésen két recepttel indult. Az elsőt és a másodikat is ő hozta el. A Pannonhalmi sárgabarack-pálinka mélysége és a karamell egyensúlya — Gellért negyedik tortájával nyerte.',
+    award_2016_award:'Magyarország Tortája', award_2016_name:'Őrség zöld aranya', award_2016_desc:'Egymást követő győzelem. Tökmagolaj, málna, az Őrség ízvilága. Máig a legkeresettebb különlegesség a pultban — azok számára, akik tudják, miért jönnek.',
+    award_2017_award:'1. hely — Kenyérlelke Fesztivál', award_2017_name:'Az ország legjobb croissant-ja', award_2017_desc:'A Kenyérlelke Fesztivál szakmai zsűrije ítélte az első helyet. 72 óra laminálás, magyar vaj — és egy kéreg, amelyet hallani.',
+    award_2025_award:'Az év péksége — 2025', award_2025_name:'Street Kitchen Guide / foodora Selection', award_2025_desc:'Tíz évvel az indulás után a Street Kitchen Guide Magyarország legjobb pékségének ítélte a G&D-t — több mint 700 tesztelt vendéglátóhely közül.',
+    bistro_label:'Bisztró', bistro_headline:'A reggel után.', bistro_body:'Cetner Attila séf konyhájából: szezonális fogások ebédre és vacsorára, ugyanazzal a figyelemmel, amelyet a croissant-ban megszoktak. Friss alapanyagok, gondosan megkomponált tányérok. Asztalfoglalás ajánlott.',
     bistro_feat1:'Ebéd', bistro_feat2:'Vacsora', bistro_feat3:'Privát rendezvény', bistro_cta:'Asztal foglalása',
     craft_croissant_name:'Croissant', craft_croissant_desc:'72 óra laminálás. Magyar vaj. Egy kéreg, amelyet hallani.',
-    craft_kakao_name:'Kakaós csiga', craft_kakao_desc:'Puha, sötét, és határeset. Az a fajta, amit állva eszel meg.',
+    craft_kakao_name:'Kakaós csiga', craft_kakao_desc:'Kovászos tészta, valódi kakaó. Naponta sütve, délutánig általában elfogy.',
     craft_retes_name:'Rétes', craft_retes_desc:'Az ő receptje. Változatlan. Nem modernizálva.',
-    craft_kenyer_name:'Kovászos kenyér', craft_kenyer_desc:'Három napos kovász. Öntöttvas. Türelem.',
+    craft_kenyer_name:'Kovászos kenyér', craft_kenyer_desc:'Háromnapos kovász. Köves malom. Öntöttvas. Türelem.',
     craft_linzer_name:'Linzer', craft_linzer_desc:'Az a linzer, amiért visszajönnek.',
-    craft_sezon_name:'Szezonális különlegesség', craft_sezon_desc:'Mindig más. Mindig aktuális. Mindig friss.',
+    craft_sezon_name:'Szezonális különlegesség', craft_sezon_desc:'A piac határozza meg. Napról napra.',
     menu_label:'Napi Menü', menu_headline:'Napi Menü', menu_loading:'Töltés\u2026',
     menu_fallback:'A mai menüért kérjük látogasson el <a href="#" target="_blank" rel="noopener">Facebook oldalunkra</a>.',
     testimonials_label:'Vendégeink mondták', testimonials_headline:'Ami visszahozza az embereket.',
-    gallery_label:'Galéria', gallery_headline:'Amit a szem lát, a kéz tudja.',
+    gallery_label:'Galéria', gallery_headline:'Betekintés a műhelybe.',
     loc_label:'Helyszíneink', loc_discover:'Felfedezem',
     loc_salgo_name:'Salgótarján', loc_salgo_city:'Salgótarján, Nógrád Vármegye',
-    loc_salgo_desc:'A G&D kézművessége Észak-Magyarországon is otthonra talált. Salgótarjánban ugyanaz a hajnali rituálé — ugyanaz a türelem, ugyanaz a precizitás, naponta egyszer sütve.',
+    loc_salgo_desc:'Ahol minden elkezdődött. Az első műhely, az eredeti recept — Salgótarjánban, tíz éve. Naponta egyszer sütve, ma is.',
     loc_gyongyos_name:'Gyöngyös', loc_gyongyos_city:'Gyöngyös, Heves Vármegye',
-    loc_gyongyos_desc:'A Mátra lábánál, Gyöngyösön a reggeli croissant illata egészen természetesen vegyül a hegyi levegővel. Egy cím, ahol érdemes megállni — akár Balaton felé menet, akár visszafelé.',
+    loc_gyongyos_desc:'A Mátra lábánál. Ugyanaz a kenyér, ugyanaz a croissant — hegyi levegőn. Megállásra érdemes, Balaton felé menet és visszafelé egyaránt.',
     visit_label:'Látogatás',
     visit_address:'Balatonkenese, Óvoda utca 2.',
     visit_hours_title:'Nyitvatartás',
@@ -917,46 +965,46 @@ const LANG = {
     footer_cookies:'Sütik kezelése',
   },
   en: {
-    nav_story:'Our Story', nav_craft:'Awards', nav_menu:"Today's Menu", nav_gallery:'Gallery', nav_bistro:'Bistro', nav_visit:'Visit Us',
-    hero_headline:'Made by hand. Felt by heart.',
-    hero_subline:'Artisanal pastries on the shores of Lake Balaton\u00A0— baked fresh, every morning.',
+    nav_story:'Our Story', nav_craft:'Awards', nav_menu:"Today's Menu", nav_gallery:'Gallery', nav_bistro:'Bistro', nav_visit:'Visit',
+    hero_headline:'Once a day. From before dawn.',
+    hero_subline:'Artisanal pastries and sourdough bread on Lake Balaton\u00A0— baked once, every morning.',
     hero_cta:'Visit Us',
     story_label:'Our Story',
-    story_headline:'A mother and her two sons. One shared conviction.',
-    story_body1:'Katalin trained as a psychologist — someone who understood, deeply, how people feel. She knew that the most honest emotions are drawn out at the table. Her two sons, Gellért and Dániel, carried that same precision forward, each in his own language: one in the art of pâtisserie, the other in the craft of bread. The name G&D is not arbitrary — it stands for Gellért and Dániel, behind a single shared workshop, held together by the spirit of Szó Ami Szó: honesty, and an uncompromising commitment to quality.',
-    story_quote:'"Szó Ami Szó is not a tagline. It is a promise — kept every morning before dawn."',
-    story_body2:'Before the lake wakes up, the work has already begun. Every batch is made once a day — what does not sell by midday will not be offered again the next morning. In the garden, under the shade of old trees where guests linger over breakfast, time moves differently — more slowly, exactly as the finest pastries require.',
-    press_label:'Recognition', press_headline:'How others see us.',
-    press_emirates:'Following his consecutive Hungary\'s Cake of the Year victories, Emirates Airlines approached Szó Gellért — and his chocolate cakes were served aboard their international flights. Some things travel further than their maker expected.',
-    press_sk_title:'Bakery of the Year', press_sk_sub:'From 51 nominees. The joint verdict of Street Kitchen and foodora Selection — unanimous.',
+    story_headline:'A mother, two sons. One workshop, one promise.',
+    story_body1:'Katalin trained as a psychologist — she understood people, and she understood that the most honest moments happen at the table. Her two sons found their own way. Gellért was studying elsewhere when he called her one day: he wanted to make the finest ice cream in the country, because he had dreamed it. He did not wait. He drove to Milan, trained with professionals, and returned. Dániel fell in love with the logic of sourdough. G&D — the initials of Gellért and Dániel — now stands behind three locations, one workshop in Salgótarján, and nearly a decade of craft.',
+    story_quote:'"Four days before he baked his first cake, he entered Hungary\'s Cake of the Year. He came home with first and second place."',
+    story_body2:'Before the lake wakes, the work has already begun. Every batch is made once a day. What sells out by noon is baked fresh the next morning. What remains is not offered again. In the garden where guests take breakfast, this discipline is felt — not announced.',
+    press_label:'Recognition', press_headline:'What others have said.',
+    press_emirates:'Following his back-to-back Hungary\'s Cake of the Year victories, Emirates Airlines approached Szó Gellért. His chocolate cakes were subsequently served on the airline\'s international flights.',
+    press_sk_title:'Bakery of the Year', press_sk_sub:'Street Kitchen Guide 2025 — from more than 700 tested venues across Hungary. The expert jury\'s verdict.',
     press_quote:'"This is the croissant worth travelling to Balatonkenese for."',
-    press_guide:'Prominent food critic Dorozsmai Endre awarded the maximum score — and then some — in every category to the Balatonkenese location. A rare distinction on the entire Balaton shore.',
-    press_tripadvisor:'Visiting guests from the US, who had sampled bakeries and coffee houses across a dozen countries, wrote that G&D ranks among the finest — anywhere in the world.',
+    press_guide:'Food critic Dorozsmai Endre, author of the Carpathian Basin Restaurant Guide, awarded 5+ points in every category to the Balatonkenese location — overall experience, kitchen, atmosphere, service. A rare distinction on the Balaton shore.',
+    press_tripadvisor:'Guests who had visited bakeries and coffee houses across a dozen countries rated G&D among the finest they had encountered anywhere in the world.',
     press_jury_source:"Hungary's Cake of the Year — jury",
-    press_jury:'After his back-to-back victories, Szó Gellért was invited to serve as jury member — beside Michelin-starred chef Sárközi Ákos of Borkonyha. He moved to the judging side.',
-    craft_label:'Recognition', craft_headline:'What the jury confirmed.',
-    award_2015_award:"Hungary's Cake of the Year", award_2015_name:'Pannonhalmi apricot brandy caramel cake', award_2015_desc:'This was the cake that brought the bakery national recognition. The depth of Pannonhalmi apricot pálinka balanced against the sweetness of caramel — a creation the profession has not forgotten.',
-    award_2016_award:"Hungary's Cake of the Year", award_2016_name:'Őrség Green Gold', award_2016_desc:'The pumpkin seed and raspberry cake remains one of their most beloved to this day — widely considered one of the finest Hungary\'s Cake of the Year winners ever awarded.',
-    award_2017_award:'1st Place — Kenyérlelke', award_2017_name:"Hungary's finest croissant", award_2017_desc:'The professional jury of the Kenyérlelke Festival awarded them first place. 72 hours of lamination, Hungarian butter — and a crust you can hear.',
-    award_2025_award:'Bakery of the Year 2025', award_2025_name:'Street Kitchen / foodora Selection', award_2025_desc:"G&D was awarded Hungary's best bakery from 51 nominees. The verdict was unanimous.",
-    bistro_label:'Bistro', bistro_headline:'Not only mornings.', bistro_body:'After the morning of the pâtisserie, the rest of the day deserves equal attention. The G&amp;D Bistro carries the same standard forward — fresh, seasonal dishes, carefully composed plates. For lunch and dinner. Book a table and spend the whole day with us.',
+    press_jury:'After his consecutive victories, Szó Gellért was invited to serve as a jury member — alongside Michelin-starred chef Sárközi Ákos of Borkonyha. He moved to the judging side.',
+    craft_label:'Recognition', craft_headline:'What the jury decided.',
+    award_2015_award:"Hungary's Cake of the Year", award_2015_name:'Pannonhalma apricot brandy caramel cake', award_2015_desc:'He entered his first competition with two recipes. He won first and second place. The Pannonhalma apricot pálinka caramel cake was the winner — his fourth cake ever baked.',
+    award_2016_award:"Hungary's Cake of the Year", award_2016_name:'Őrség Green Gold', award_2016_desc:'Back-to-back. Pumpkin seed oil, raspberry, the flavours of the Őrség region. Still the most sought-after item at the counter — for those who know why they come.',
+    award_2017_award:'1st Place — Kenyérlelke Festival', award_2017_name:"Hungary's finest croissant", award_2017_desc:'The professional jury of the Kenyérlelke Festival awarded first place. 72 hours of lamination, Hungarian butter — and a crust you can hear.',
+    award_2025_award:'Bakery of the Year — 2025', award_2025_name:'Street Kitchen Guide / foodora Selection', award_2025_desc:'Ten years after opening, the Street Kitchen Guide named G&D the best bakery in Hungary — from more than 700 tested venues.',
+    bistro_label:'Bistro', bistro_headline:'After morning.', bistro_body:'Chef Cetner Attila\'s kitchen: seasonal dishes for lunch and dinner, with the same attention you find in the pastry case. Fresh produce, composed plates. Reservations recommended.',
     bistro_feat1:'Lunch', bistro_feat2:'Dinner', bistro_feat3:'Private events', bistro_cta:'Book a Table',
     craft_croissant_name:'Croissant', craft_croissant_desc:'72 hours of lamination. Hungarian butter. A crust you can hear.',
-    craft_kakao_name:'Chocolate swirl', craft_kakao_desc:'Soft, dark, and borderline dangerous. The kind you eat standing up.',
-    craft_retes_name:'Strudel', craft_retes_desc:'Her recipe. Not adjusted. Not modernized.',
-    craft_kenyer_name:'Sourdough bread', craft_kenyer_desc:'Three-day starter. Cast iron. Patience.',
-    craft_linzer_name:'Linzer cookies', craft_linzer_desc:'The linzer people come back for.',
-    craft_sezon_name:'Seasonal special', craft_sezon_desc:'Always different. Always seasonal. Always fresh.',
+    craft_kakao_name:'Chocolate swirl', craft_kakao_desc:'Sourdough dough, real cocoa. Baked daily — gone by afternoon.',
+    craft_retes_name:'Strudel', craft_retes_desc:'Her recipe. Unchanged. Not modernised.',
+    craft_kenyer_name:'Sourdough bread', craft_kenyer_desc:'Three-day starter. Stone-ground flour. Cast iron. Patience.',
+    craft_linzer_name:'Linzer', craft_linzer_desc:'The linzer people come back for.',
+    craft_sezon_name:'Seasonal special', craft_sezon_desc:'The market decides. Day by day.',
     menu_label:"Today's Menu", menu_headline:"Today's Menu", menu_loading:'Loading\u2026',
     menu_fallback:'For today\'s menu, please visit our <a href="#" target="_blank" rel="noopener">Facebook page</a>.',
     testimonials_label:'What our guests say', testimonials_headline:'What brings people back.',
-    gallery_label:'Gallery', gallery_headline:'What the eye sees, the hand already knows.',
+    gallery_label:'Gallery', gallery_headline:'A glimpse into the workshop.',
     loc_label:'Our Locations', loc_discover:'Explore',
-    loc_salgo_name:'Salgótarján', loc_salgo_city:'Salgótarján, Nógrád Vármegye',
-    loc_salgo_desc:'The craft of G&D has found a home in Northern Hungary. In Salgótarján, the same pre-dawn ritual — the same patience, the same precision, baked once a day.',
-    loc_gyongyos_name:'Gyöngyös', loc_gyongyos_city:'Gyöngyös, Heves Vármegye',
-    loc_gyongyos_desc:'At the foot of the Mátra hills, the morning scent of croissant mingles naturally with mountain air. A destination worth stopping at — on the way to Balaton, or back.',
-    visit_label:'Visit Us',
+    loc_salgo_name:'Salgótarján', loc_salgo_city:'Salgótarján, Nógrád County',
+    loc_salgo_desc:'Where it all began. The original workshop, the original recipe — in Salgótarján, for a decade. Baked once a day, still.',
+    loc_gyongyos_name:'Gyöngyös', loc_gyongyos_city:'Gyöngyös, Heves County',
+    loc_gyongyos_desc:'At the foot of the Mátra hills. The same bread, the same croissant — in mountain air. Worth stopping, on the way to Balaton or back.',
+    visit_label:'Visit',
     visit_address:'Balatonkenese, Óvoda utca 2.',
     visit_hours_title:'Opening Hours',
     visit_mon_wed:'Monday – Wednesday', visit_closed:'Closed',
@@ -1128,6 +1176,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 /* ================================================================
    INIT
 ================================================================ */
+setLang('hu');
 updateMenuDate();
 fetchMenu();
 renderTestimonials();
