@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="hu" data-lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Szó Ami Szó G&D Kézműves Cukrászda — Kézműves sütemények a Balaton partján, minden reggel frissen sütve.">
+  <title>Szó Ami Szó — G&D Kézműves Cukrászda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cormorant+Upright:wght@300;400;500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-primary:    #EDE8DC;
+      --color-bg-secondary:  #F5F0E6;
+      --color-bg-dark:       #1A1510;
+      --color-bg-menu:       #F9F5ED;
+      --color-text-primary:  #1A1510;
+      --color-text-secondary:#7A6B5A;
+      --color-text-inverse:  #EDE8DC;
+      --color-text-muted:    #A0917F;
+      --color-gold:          #C9A84C;
+      --color-terracotta:    #B5614A;
+      --color-border:        #DDD4C4;
+      --color-border-dark:   rgba(26,21,16,0.1);
+      --font-serif:  'Cormorant Garamond', Georgia, serif;
+      --font-body:   'Cormorant Infant', Georgia, serif;
+      --font-mono:   'Space Mono', 'Courier New', monospace;
+      --font-accent: 'Cormorant Upright', serif;
+      --text-hero:    clamp(3.5rem, 8vw, 7rem);
+      --text-h1:      clamp(2.5rem, 5vw, 4.5rem);
+      --text-h2:      clamp(1.8rem, 3.5vw, 3rem);
+      --text-h3:      clamp(1.3rem, 2.5vw, 1.8rem);
+      --text-body:    clamp(1rem, 1.5vw, 1.15rem);
+      --text-small:   0.8125rem;
+      --text-mono-ui: 0.72rem;
+      --space-section:     clamp(6rem, 12vw, 10rem);
+      --space-block:       clamp(2rem, 5vw, 4rem);
+      --space-gap:         clamp(1rem, 2.5vw, 2rem);
+      --container-max:     1380px;
+      --container-padding: clamp(1.5rem, 5vw, 5rem);
+      --transition-slow:   0.8s cubic-bezier(0.25,0.1,0.25,1);
+      --transition-medium: 0.45s cubic-bezier(0.25,0.1,0.25,1);
+      --transition-fast:   0.22s ease;
+      --radius-soft: 2px;
+      --border-thin: 1px solid var(--color-border);
+      --border-gold: 0.5px solid var(--color-gold);
+    }
+
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{background-color:var(--color-bg-primary);color:var(--color-text-primary);font-family:var(--font-body);font-size:var(--text-body);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    img,iframe{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer}
+    ::selection{background-color:rgba(201,168,76,0.2);color:var(--color-text-primary)}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:var(--color-bg-primary)}
+    ::-webkit-scrollbar-thumb{background:var(--color-border);border-radius:2px}
+
+    .container{max-width:var(--container-max);margin:0 auto;padding:0 var(--container-padding)}
+    section{padding:var(--space-section) 0}
+
+    /* CTA BUTTON — shared style */
+    .btn-cta {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: var(--text-mono-ui);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 1rem 2.75rem;
+      border: 0.5px solid var(--color-gold);
+      background: transparent;
+      color: var(--color-text-primary);
+      transition: background var(--transition-medium), color var(--transition-medium);
+      border-radius: var(--radius-soft);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-cta:hover{background:var(--color-text-primary);color:var(--color-text-inverse)}
+    .btn-cta--inverse{color:var(--color-text-inverse);border-color:rgba(237,232,220,0.5)}
+    .btn-cta--inverse:hover{background:var(--color-text-inverse);color:var(--color-text-primary)}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity var(--transition-slow),transform var(--transition-slow)}
+    .reveal.is-visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.10s}
+    .reveal-delay-2{transition-delay:.20s}
+    .reveal-delay-3{transition-delay:.30s}
+    .reveal-delay-4{transition-delay:.40s}
+    .reveal-delay-5{transition-delay:.50s}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+    /* SECTION LABEL */
+    .section-label{display:block;font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.22em;color:var(--color-gold);margin-bottom:1.25rem}
+    .section-headline{font-family:var(--font-serif);font-size:var(--text-h2);font-weight:300;font-style:italic;line-height:1.15;color:var(--color-text-primary)}
+
+    /* ================================================================ NAV */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.6rem var(--container-padding);display:flex;align-items:center;justify-content:space-between;transition:background-color var(--transition-medium),border-bottom-color var(--transition-medium),padding var(--transition-medium);border-bottom:1px solid transparent}
+    #nav.scrolled{background-color:var(--color-bg-primary);border-bottom-color:var(--color-border);padding-top:1rem;padding-bottom:1rem}
+    .nav-logo{display:flex;align-items:center;flex-shrink:0;transition:opacity var(--transition-fast)}
+    .nav-logo:hover{opacity:.8}
+    .nav-logo img{height:36px;width:auto;display:block;transition:opacity var(--transition-medium)}
+    .nav-logo .logo-light{opacity:1}
+    .nav-logo .logo-dark{opacity:0;position:absolute}
+    #nav.scrolled .nav-logo .logo-light{opacity:0}
+    #nav.scrolled .nav-logo .logo-dark{opacity:1;position:static}
+    .nav-links{display:flex;align-items:center;gap:clamp(1.5rem,3vw,2.5rem);list-style:none}
+    .nav-links a{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.14em;color:rgba(237,232,220,.6);transition:color var(--transition-fast)}
+    .nav-links a:hover{color:rgba(237,232,220,.95)}
+    #nav.scrolled .nav-links a{color:var(--color-text-secondary)}
+    #nav.scrolled .nav-links a:hover{color:var(--color-text-primary)}
+    .nav-right{display:flex;align-items:center;gap:1.5rem;flex-shrink:0}
+    .lang-toggle{display:flex;align-items:center;gap:.35rem}
+    .lang-btn{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.1em;background:none;border:none;padding:0;color:rgba(237,232,220,.2);transition:color var(--transition-fast)}
+    .lang-btn.active{color:rgba(237,232,220,.9)}
+    .lang-btn:not(.active):hover{color:rgba(237,232,220,.5)}
+    #nav.scrolled .lang-btn{color:rgba(26,21,16,.2)}
+    #nav.scrolled .lang-btn.active{color:var(--color-gold)}
+    #nav.scrolled .lang-btn:not(.active):hover{color:var(--color-text-secondary)}
+    .lang-sep{font-family:var(--font-mono);font-size:var(--text-mono-ui);color:rgba(237,232,220,.15);pointer-events:none}
+    #nav.scrolled .lang-sep{color:var(--color-border)}
+    .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;padding:4px;width:30px;height:30px}
+    .nav-toggle span{display:block;width:22px;height:1px;background:rgba(237,232,220,.8);transform-origin:center;transition:transform var(--transition-medium),opacity var(--transition-fast),background var(--transition-fast)}
+    #nav.scrolled .nav-toggle span{background:var(--color-text-primary)}
+    .nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-toggle.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .nav-mobile-menu{position:fixed;inset:0;z-index:190;background-color:var(--color-bg-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(1.75rem,5vw,2.5rem);opacity:0;pointer-events:none;transition:opacity var(--transition-medium)}
+    .nav-mobile-menu.open{opacity:1;pointer-events:all}
+    .nav-mobile-menu a{font-family:var(--font-serif);font-size:var(--text-h2);font-weight:300;font-style:italic;color:var(--color-text-primary);transition:color var(--transition-fast)}
+    .nav-mobile-menu a:hover{color:var(--color-gold)}
+    .nav-mobile-lang{margin-top:1.25rem;display:flex;gap:1.25rem;align-items:center}
+    .nav-mobile-lang button{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.12em;background:none;border:none;color:rgba(26,21,16,.25);transition:color var(--transition-fast)}
+    .nav-mobile-lang button.active{color:var(--color-gold)}
+    .nav-mobile-lang .lang-sep{color:var(--color-border)}
+    @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}}
+
+    /* ================================================================ HERO */
+    #hero{position:relative;min-height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0}
+    .hero-bg{position:absolute;inset:0;background-image:url('assets/images/crossiantss.jpg');background-size:cover;background-position:center 40%}
+    /* Tasteful multi-layer overlay: soft vignette + bottom gradient for subline legibility */
+    .hero-overlay{position:absolute;inset:0;background:
+      radial-gradient(ellipse 120% 80% at 50% 40%, rgba(26,21,16,0) 0%, rgba(26,21,16,0.28) 100%),
+      linear-gradient(to bottom, rgba(26,21,16,0.32) 0%, rgba(26,21,16,0.08) 40%, rgba(26,21,16,0.08) 55%, rgba(26,21,16,0.52) 100%)}
+    .hero-content{position:relative;z-index:2;text-align:center;padding:0 var(--container-padding);max-width:940px}
+    .hero-headline{font-family:var(--font-serif);font-size:var(--text-hero);font-weight:300;font-style:italic;color:#fff;line-height:1.07;letter-spacing:-.01em;text-shadow:0 2px 40px rgba(26,21,16,0.35),0 1px 8px rgba(26,21,16,0.25);opacity:0;transform:translateY(20px);animation:heroFadeUp 1.2s cubic-bezier(.25,.1,.25,1) .3s forwards}
+    /* Subline in serif as requested */
+    .hero-subline{margin-top:1.75rem;font-family:var(--font-serif);font-size:clamp(1rem,2vw,1.3rem);font-style:italic;font-weight:300;color:rgba(255,255,255,.88);letter-spacing:.04em;line-height:1.6;text-shadow:0 1px 20px rgba(26,21,16,0.5);opacity:0;animation:heroFadePartial 1s cubic-bezier(.25,.1,.25,1) .85s forwards}
+    .hero-cta-wrap{margin-top:2.75rem;opacity:0;animation:heroFadePartial 1s ease 1.2s forwards}
+    .hero-scroll-indicator{position:absolute;bottom:2.75rem;left:50%;transform:translateX(-50%);width:1px;height:50px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,.7));opacity:0;animation:heroFadePartial .8s ease 1.6s forwards}
+    @keyframes heroFadeUp{to{opacity:1;transform:translateY(0)}}
+    @keyframes heroFadePartial{to{opacity:1}}
+
+    /* ================================================================ STORY */
+    #story{background-color:var(--color-bg-secondary)}
+    .story-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(3rem,8vw,7rem);align-items:start}
+    .story-image-col{position:sticky;top:5.5rem;align-self:start}
+    .story-image-placeholder{aspect-ratio:1/1;border-radius:var(--radius-soft);background-size:cover;background-position:center top}
+    .story-text-col{padding-top:clamp(0rem,3vw,3rem)}
+    .story-headline{font-family:var(--font-serif);font-size:var(--text-h1);font-weight:300;font-style:italic;line-height:1.1;color:var(--color-text-primary);margin-bottom:var(--space-block)}
+    .story-body{font-family:var(--font-body);font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.95;color:var(--color-text-primary)}
+    .story-body+.story-body{margin-top:1.75rem}
+    .story-pull-quote{font-family:var(--font-accent);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:300;font-style:italic;color:var(--color-gold);line-height:1.45;margin:var(--space-block) 0;padding-left:2rem;border-left:var(--border-gold)}
+    @media(max-width:900px){.story-grid{grid-template-columns:1fr}.story-image-col{position:static}}
+
+    /* ================================================================ PRESS */
+    #press{background-color:var(--color-bg-primary);border-top:var(--border-thin)}
+    .press-intro{max-width:620px;margin-bottom:clamp(3rem,6vw,5rem)}
+    .press-outlets{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;padding-bottom:clamp(2.5rem,5vw,4rem);border-bottom:var(--border-thin);margin-bottom:clamp(3rem,7vw,5rem)}
+    .press-outlet{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.2em;color:var(--color-text-muted);transition:color var(--transition-fast)}
+    .press-dot{color:var(--color-border);font-family:var(--font-mono);font-size:var(--text-mono-ui);pointer-events:none}
+    .press-features{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);margin-bottom:clamp(3rem,7vw,5rem)}
+    .press-feature{padding:clamp(1.75rem,3.5vw,2.75rem);border:var(--border-thin);border-radius:var(--radius-soft);transition:border-color var(--transition-medium)}
+    .press-feature:hover{border-color:rgba(201,168,76,.3)}
+    .press-feature-source{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.2em;color:var(--color-gold);margin-bottom:1.5rem;opacity:.8}
+    .press-feature-text{font-family:var(--font-body);font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.9;color:var(--color-text-secondary);font-style:italic}
+    .press-award-badge{display:flex;align-items:center;gap:2rem}
+    .press-award-year{font-family:var(--font-serif);font-size:clamp(3.5rem,7vw,5rem);font-weight:300;font-style:italic;color:var(--color-gold);line-height:1;opacity:.35;flex-shrink:0}
+    .press-award-title{font-family:var(--font-serif);font-size:var(--text-h3);font-weight:300;font-style:italic;line-height:1.2;color:var(--color-text-primary);margin-bottom:.5rem}
+    .press-award-sub{font-family:var(--font-body);font-size:var(--text-small);font-style:italic;color:var(--color-text-secondary);line-height:1.65}
+    .press-quote{text-align:center;max-width:820px;margin:0 auto;padding-top:clamp(2.5rem,5vw,4rem);border-top:var(--border-thin)}
+    .press-quote-text{font-family:var(--font-accent);font-size:clamp(1.5rem,3vw,2.3rem);font-weight:300;font-style:italic;color:var(--color-text-primary);line-height:1.4;margin-bottom:1.25rem}
+    .press-quote-attr{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.2em;color:var(--color-text-muted)}
+    @media(max-width:700px){.press-features{grid-template-columns:1fr}}
+    .press-secondary{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3rem);padding-top:clamp(2.5rem,5vw,4rem);border-top:var(--border-thin);margin-bottom:clamp(3rem,7vw,5rem)}
+    .press-secondary-item{}
+    .press-secondary-source{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.2em;color:var(--color-gold);margin-bottom:.75rem;opacity:.8}
+    .press-secondary-score{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;font-style:italic;color:var(--color-text-primary);line-height:1;margin-bottom:1rem;opacity:.22}
+    .press-secondary-text{font-family:var(--font-body);font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.85;color:var(--color-text-secondary);font-style:italic}
+    @media(max-width:700px){.press-secondary{grid-template-columns:1fr}}
+
+    /* ================================================================ AWARDS */
+    #craft{background-color:var(--color-bg-primary)}
+    .awards-intro{max-width:680px;margin-bottom:clamp(4rem,8vw,7rem)}
+    .awards-list{display:flex;flex-direction:column;gap:clamp(6rem,12vw,10rem)}
+    .award-entry{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,8vw,6rem);align-items:center}
+    .award-entry--reverse .award-image-wrap{order:2}
+    .award-entry--reverse .award-text{order:1}
+    .award-image-wrap{aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius-soft);transition:transform var(--transition-slow)}
+    .award-image-wrap:hover{transform:scale(1.012)}
+    .award-image-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+    .award-image-placeholder{width:100%;height:100%;display:block}
+    .award-year-badge{display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem}
+    .award-year{font-family:var(--font-serif);font-size:clamp(3.5rem,7vw,5.5rem);font-weight:300;font-style:italic;color:var(--color-gold);line-height:1;opacity:.5}
+    .award-trophy{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.18em;color:var(--color-gold);border:var(--border-gold);padding:.45rem 1rem;border-radius:var(--radius-soft)}
+    .award-name{font-family:var(--font-serif);font-size:var(--text-h1);font-weight:300;font-style:italic;line-height:1.1;margin-bottom:1.5rem;color:var(--color-text-primary)}
+    .award-desc{font-family:var(--font-body);font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.9;color:var(--color-text-secondary)}
+    .award-sep{width:40px;height:1px;background:var(--color-gold);opacity:.35;margin:2rem 0}
+    @media(max-width:900px){.award-entry,.award-entry--reverse{grid-template-columns:1fr}.award-entry--reverse .award-image-wrap,.award-entry--reverse .award-text{order:unset}}
+
+    /* ================================================================ MENU */
+    #menu{background-color:var(--color-bg-menu)}
+    .menu-header{text-align:center;margin-bottom:clamp(3rem,7vw,5rem)}
+    .menu-headline{font-family:var(--font-serif);font-size:var(--text-h1);font-weight:300;font-style:italic;margin-top:.75rem}
+    .menu-date{margin-top:1.25rem;font-family:var(--font-mono);font-size:var(--text-mono-ui);letter-spacing:.18em;color:var(--color-text-muted);text-transform:uppercase}
+    .menu-card{max-width:820px;margin:0 auto;border:var(--border-gold);padding:clamp(2rem,6vw,4.5rem) clamp(1.5rem,5vw,4rem);position:relative}
+    .menu-card::before,.menu-card::after{content:'';position:absolute;width:18px;height:18px;border-color:var(--color-gold);border-style:solid;opacity:.5}
+    .menu-card::before{top:-1px;left:-1px;border-width:1px 0 0 1px}
+    .menu-card::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
+    .menu-category{margin-bottom:2.5rem}
+    .menu-category:last-child{margin-bottom:0}
+    .menu-category-header{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.22em;color:var(--color-gold);padding-bottom:1rem;border-bottom:var(--border-thin);margin-bottom:1.25rem}
+    .menu-item{display:grid;grid-template-columns:1fr auto;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--color-border-dark);align-items:start}
+    .menu-item:last-child{border-bottom:none}
+    .menu-item-left{display:flex;align-items:baseline;gap:.6rem}
+    .menu-item-highlight{color:var(--color-gold);font-size:.55rem;flex-shrink:0;line-height:1.85}
+    .menu-item-name{font-family:var(--font-serif);font-size:clamp(1rem,1.8vw,1.15rem);font-weight:400;color:var(--color-text-primary)}
+    .menu-item-desc{font-family:var(--font-body);font-size:var(--text-small);font-style:italic;color:var(--color-text-secondary);margin-top:.2rem;line-height:1.6}
+    .menu-item-allergens{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted);margin-top:.3rem}
+    .menu-item-price{font-family:var(--font-mono);font-size:var(--text-small);color:var(--color-text-primary);white-space:nowrap;letter-spacing:.04em;padding-top:.05rem}
+    .menu-fallback{text-align:center;padding:3rem 0;font-family:var(--font-body);font-size:var(--text-body);font-style:italic;color:var(--color-text-secondary)}
+    .menu-fallback a{color:var(--color-gold);border-bottom:var(--border-gold);padding-bottom:1px;transition:opacity var(--transition-fast)}
+    .menu-fallback a:hover{opacity:.7}
+
+    /* ================================================================ TESTIMONIALS */
+    #testimonials{background-color:var(--color-bg-primary);overflow:hidden;padding:var(--space-section) 0}
+    .testimonials-header{text-align:center;margin-bottom:clamp(3rem,6vw,4.5rem)}
+    .testimonials-columns{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-gap);padding:0 var(--container-padding);max-width:var(--container-max);margin:0 auto}
+    .testimonials-track-wrap{height:520px;overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,transparent 0%,black 12%,black 88%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 12%,black 88%,transparent 100%)}
+    .testimonials-track{display:flex;flex-direction:column;gap:1.5rem}
+    .testimonials-track--a{animation:scrollTestimonials 28s linear infinite}
+    .testimonials-track--b{animation:scrollTestimonialsDown 22s linear infinite}
+    @keyframes scrollTestimonials{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+    @keyframes scrollTestimonialsDown{0%{transform:translateY(-50%)}100%{transform:translateY(0)}}
+    .testimonial-card{background:var(--color-bg-secondary);border:var(--border-thin);border-radius:var(--radius-soft);padding:2rem 2.25rem;width:100%}
+    .testimonial-stars{color:var(--color-gold);font-size:.8rem;letter-spacing:.2em;margin-bottom:1rem}
+    .testimonial-text{font-family:var(--font-body);font-size:clamp(1rem,1.6vw,1.15rem);font-style:italic;line-height:1.85;color:var(--color-text-primary)}
+    .testimonial-author{margin-top:1.25rem;font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.15em;color:var(--color-text-muted)}
+    @media(max-width:700px){.testimonials-columns{grid-template-columns:1fr}.testimonials-track--b{display:none}}
+
+    /* ================================================================ GALLERY — auto-scroll vertical */
+    #gallery{background-color:var(--color-bg-secondary);overflow:hidden}
+    .gallery-intro{text-align:center;margin-bottom:clamp(3rem,7vw,5rem)}
+    .gallery-scroll-wrap{height:700px;overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,transparent 0%,black 22%,black 78%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 22%,black 78%,transparent 100%)}
+    /* Two columns running in opposite directions */
+    .gallery-columns{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-gap);height:100%}
+    .gallery-col{display:flex;flex-direction:column;gap:var(--space-gap)}
+    .gallery-col--a{animation:scrollGalleryUp 22s linear infinite}
+    .gallery-col--b{animation:scrollGalleryDown 26s linear infinite}
+
+    @keyframes scrollGalleryUp{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+    @keyframes scrollGalleryDown{0%{transform:translateY(-50%)}100%{transform:translateY(0)}}
+    .gallery-item{border-radius:var(--radius-soft);overflow:hidden;flex-shrink:0}
+    .gallery-item div{width:100%;transition:transform var(--transition-slow),filter var(--transition-slow)}
+    .gallery-item:hover div{transform:scale(1.02);filter:brightness(1.06)}
+    @media(max-width:600px){.gallery-columns{grid-template-columns:1fr}.gallery-col--b{display:none}}
+    @media(max-width:700px){#testimonials{padding-bottom:clamp(2rem,4vw,3rem)}#gallery{padding-top:clamp(2rem,4vw,3rem)}}
+
+    /* ================================================================ LOCATIONS */
+    .location-section{position:relative;min-height:72vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0}
+    .location-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+    .location-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,21,16,.55) 0%,rgba(26,21,16,.35) 50%,rgba(26,21,16,.65) 100%)}
+    .location-content{position:relative;z-index:2;text-align:center;padding:var(--space-section) var(--container-padding);max-width:740px;width:100%}
+    .location-section .section-label{color:rgba(201,168,76,.85)}
+    .location-name{font-family:var(--font-serif);font-size:var(--text-h1);font-weight:300;font-style:italic;line-height:1.1;margin-bottom:.75rem;color:var(--color-text-inverse)}
+    .location-city{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.18em;color:rgba(237,232,220,.5);margin-bottom:var(--space-block)}
+    .location-desc{font-family:var(--font-body);font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.9;color:rgba(237,232,220,.82);margin-bottom:var(--space-block)}
+
+    /* ================================================================ BISTRO */
+    #bistro{background-color:var(--color-bg-dark);padding:0}
+    .bistro-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(4rem,10vw,8rem);align-items:center;padding:var(--space-section) 0;min-height:75vh}
+    .bistro-headline{font-family:var(--font-serif);font-size:var(--text-h1);font-weight:300;font-style:italic;line-height:1.1;color:var(--color-text-inverse);margin-bottom:var(--space-block)}
+    .bistro-body{font-family:var(--font-body);font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.9;color:rgba(237,232,220,.68);margin-bottom:var(--space-block)}
+    .bistro-features{display:flex;flex-direction:column;gap:.8rem;margin-bottom:var(--space-block)}
+    .bistro-feature{display:flex;align-items:center;gap:1.25rem;font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.18em;color:rgba(237,232,220,.38)}
+    .bistro-feature::before{content:'';display:block;width:22px;height:1px;background:var(--color-gold);opacity:.55;flex-shrink:0}
+    .bistro-visual{aspect-ratio:4/5;border-radius:var(--radius-soft);background-image:url('assets/images/lunch.jpg');background-size:cover;background-position:center;position:relative;overflow:hidden}
+    .bistro-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.06) 0%,transparent 60%)}
+    #bistro .section-label{color:rgba(201,168,76,.68)}
+    @media(max-width:900px){.bistro-inner{grid-template-columns:1fr;min-height:auto}.bistro-visual{display:none}}
+
+    /* ================================================================ VISIT */
+    #visit{background-color:var(--color-bg-secondary)}
+    .visit-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(3rem,8vw,7rem);align-items:start}
+    .visit-info{padding-top:clamp(0rem,3vw,2rem)}
+    .visit-shop-name{font-family:var(--font-serif);font-size:var(--text-h2);font-weight:300;font-style:italic;color:var(--color-text-primary);margin-bottom:.5rem;line-height:1.2}
+    .visit-address-block{margin-bottom:var(--space-block)}
+    .visit-address{font-family:var(--font-body);font-size:var(--text-body);color:var(--color-text-secondary);line-height:1.7;display:inline-block;border-bottom:1px solid transparent;transition:color var(--transition-fast),border-color var(--transition-fast)}
+    .visit-address:hover{color:var(--color-gold);border-bottom-color:var(--color-gold)}
+    .visit-contact{margin-top:1rem;display:flex;flex-direction:column;gap:.35rem}
+    .visit-contact a{font-family:var(--font-mono);font-size:var(--text-mono-ui);letter-spacing:.08em;color:var(--color-text-secondary);transition:color var(--transition-fast)}
+    .visit-contact a:hover{color:var(--color-gold)}
+    .visit-hours-block{margin-bottom:var(--space-block)}
+    .visit-hours-title{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.2em;color:var(--color-gold);margin-bottom:1rem}
+    .visit-hours-table{width:100%;border-collapse:collapse}
+    .visit-hours-table tr{border-bottom:1px solid var(--color-border-dark)}
+    .visit-hours-table tr:last-child{border-bottom:none}
+    .visit-hours-table td{font-family:var(--font-body);font-size:var(--text-body);padding:.65rem 0;color:var(--color-text-primary);line-height:1.5}
+    .visit-hours-table td:first-child{color:var(--color-text-secondary);padding-right:2rem}
+    .visit-hours-table .closed{color:var(--color-text-muted)}
+    .visit-note{font-family:var(--font-body);font-size:var(--text-small);font-style:italic;color:var(--color-terracotta);line-height:1.65;padding-top:1.25rem;border-top:var(--border-thin);margin-bottom:2rem}
+
+    /* Social in visit section */
+    .visit-social{margin-top:2.5rem;padding-top:2rem;border-top:var(--border-thin)}
+    .visit-social-label{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.2em;color:var(--color-gold);margin-bottom:1.25rem}
+    .visit-social-links{display:flex;flex-direction:column;gap:1rem}
+    .visit-social-link{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;border:var(--border-thin);border-radius:var(--radius-soft);transition:border-color var(--transition-fast),background var(--transition-fast)}
+    .visit-social-link:hover{border-color:var(--color-gold);background:rgba(201,168,76,.05)}
+    .visit-social-link svg{width:20px;height:20px;flex-shrink:0;stroke:var(--color-gold);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+    .visit-social-link-text{}
+    .visit-social-link-name{font-family:var(--font-mono);font-size:var(--text-mono-ui);text-transform:uppercase;letter-spacing:.14em;color:var(--color-text-primary)}
+    .visit-social-link-handle{font-family:var(--font-body);font-size:var(--text-small);font-style:italic;color:var(--color-text-muted);margin-top:.1rem}
+    .visit-social-arrow{margin-left:auto;font-family:var(--font-mono);font-size:var(--text-mono-ui);color:var(--color-text-muted);transition:color var(--transition-fast),transform var(--transition-fast)}
+    .visit-social-link:hover .visit-social-arrow{color:var(--color-gold);transform:translateX(3px)}
+
+    .visit-map-col{position:sticky;top:5.5rem}
+    .visit-map-wrapper{border-radius:var(--radius-soft);overflow:hidden;border:var(--border-thin)}
+    .visit-map-wrapper iframe{width:100%;height:440px;border:0;display:block;filter:sepia(22%) saturate(75%) brightness(94%)}
+    @media(max-width:900px){.visit-grid{grid-template-columns:1fr}.visit-map-col{position:static}}
+
+    /* ================================================================ FOOTER */
+    #footer{background-color:var(--color-bg-dark);padding:clamp(3.5rem,8vw,6rem) var(--container-padding) clamp(2rem,4vw,3rem)}
+    .footer-inner{max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem}
+    @media(max-width:700px){.footer-inner{grid-template-columns:1fr;text-align:center}}
+    .footer-wordmark{display:flex;align-items:center}
+    .footer-wordmark img{height:28px;width:auto;opacity:.45;transition:opacity var(--transition-fast)}
+    .footer-wordmark img:hover{opacity:.7}
+    .footer-social{display:flex;align-items:center;justify-content:center;gap:1.75rem}
+    .footer-social a{color:rgba(237,232,220,.3);transition:color var(--transition-fast);display:flex}
+    .footer-social a:hover{color:var(--color-gold)}
+    .footer-social svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+    .footer-copy{font-family:var(--font-mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.14em;color:rgba(237,232,220,.22);text-align:right;line-height:1.7}
+    @media(max-width:700px){.footer-copy{text-align:center}}
+    .footer-lang{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:clamp(2rem,4vw,3rem);padding-top:clamp(1.5rem,3vw,2rem);border-top:1px solid rgba(237,232,220,.07)}
+    .footer-lang button{font-family:var(--font-mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;background:none;border:none;color:rgba(237,232,220,.18);transition:color var(--transition-fast)}
+    .footer-lang button.active{color:var(--color-gold)}
+    .footer-lang button:hover{color:rgba(237,232,220,.5)}
+    .footer-lang .lang-sep{color:rgba(237,232,220,.12);font-family:var(--font-mono);font-size:.65rem}
+    .footer-legal{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-top:1rem}
+    .footer-legal a{font-family:var(--font-mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(237,232,220,.16);transition:color var(--transition-fast)}
+    .footer-legal a:hover{color:rgba(237,232,220,.4)}
+    .footer-legal-sep{font-family:var(--font-mono);font-size:.6rem;color:rgba(237,232,220,.08);pointer-events:none}
+
+    #menu,#gallery,#bistro,#visit{content-visibility:auto}
+  </style>
+</head>
+<body>
+
+<nav id="nav" role="navigation">
+  <a href="#hero" class="nav-logo">
+    <img src="assets/images/logo-light.png" alt="Szó Ami Szó G&D" class="logo-light">
+    <img src="assets/images/logo-dark.png" alt="Szó Ami Szó G&D" class="logo-dark">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#story"        data-i18n="nav_story">Történetünk</a></li>
+    <li><a href="#craft"        data-i18n="nav_craft">Díjaink</a></li>
+    <li><a href="#menu"         data-i18n="nav_menu">Napi Menü</a></li>
+    <li><a href="#gallery"      data-i18n="nav_gallery">Galéria</a></li>
+    <li><a href="#bistro"       data-i18n="nav_bistro">Bisztró</a></li>
+    <li><a href="#visit"        data-i18n="nav_visit">Látogatás</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle" role="group">
+      <button class="lang-btn active" data-lang-btn="hu" onclick="setLang('hu')">HU</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" data-lang-btn="en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#story"   data-i18n="nav_story"   onclick="closeMobileMenu()">Történetünk</a>
+  <a href="#craft"   data-i18n="nav_craft"   onclick="closeMobileMenu()">Díjaink</a>
+  <a href="#menu"    data-i18n="nav_menu"    onclick="closeMobileMenu()">Napi Menü</a>
+  <a href="#gallery" data-i18n="nav_gallery" onclick="closeMobileMenu()">Galéria</a>
+  <a href="#bistro"  data-i18n="nav_bistro"  onclick="closeMobileMenu()">Bisztró</a>
+  <a href="#visit"   data-i18n="nav_visit"   onclick="closeMobileMenu()">Látogatás</a>
+  <div class="nav-mobile-lang">
+    <button class="active" data-mobile-lang-btn="hu" onclick="setLang('hu');updateMobileLangBtns('hu')">HU</button>
+    <span class="lang-sep">/</span>
+    <button data-mobile-lang-btn="en" onclick="setLang('en');updateMobileLangBtns('en')">EN</button>
+  </div>
+</div>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-headline" data-i18n="hero_headline">Amit a kezünk csinál, azt a szívünk érzi.</h1>
+    <p  class="hero-subline"  data-i18n="hero_subline">Kézműves sütemények a Balaton partján&nbsp;— minden reggel frissen sütve.</p>
+    <div class="hero-cta-wrap">
+      <a href="#visit" class="btn-cta btn-cta--inverse" data-i18n="hero_cta">Látogatás</a>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator" aria-hidden="true"></div>
+</section>
+
+<!-- ===== OUR STORY ===== -->
+<section id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-image-col">
+        <div class="story-image-placeholder reveal" role="img" aria-label="A Szó Ami Szó csapata" style="background-image:url('assets/images/szofamily.jpg')"></div>
+      </div>
+      <div class="story-text-col">
+        <span class="section-label reveal" data-i18n="story_label" id="story-heading">Történetünk</span>
+        <h2 class="story-headline reveal reveal-delay-1" data-i18n="story_headline">Egy anya és két fia. Egyetlen közös elhatározás.</h2>
+        <p class="story-body reveal reveal-delay-2" data-i18n="story_body1">Katalin pszichológusként értett az emberek lelkéhez — és tudta, hogy az asztal az, ahol az érzelmek igazán megmutatkoznak. Két fia, Gellért és Dániel, ugyanezt a precizitást vitték tovább, csak lisztes kézzel: az egyik a cukrászat, a másik a kenyérsütés nyelvén. A G&D neve sem véletlen — Gellért és Dániel kezdőbetűi, egy közös műhely mögött, amelyet a Szó Ami Szó — az őszinteség, a minőség iránti elkötelezettség — szelleme tart össze.</p>
+        <blockquote class="story-pull-quote reveal reveal-delay-3" data-i18n="story_quote">„A Szó Ami Szó nem reklámszöveg. Ígéret — amelyet minden reggel hajnalban be kell tartani."</blockquote>
+        <p class="story-body reveal reveal-delay-4" data-i18n="story_body2">Hajnalban, amikor a Balaton még csendes, a dagasztás már elkezdődött. Minden tétel naponta egyszer készül — ami délelőtt nem fogy el, azt másnap nem kínáljuk újra. A kertben, fák árnyékában, ahol vendégeink a reggelijüket töltik, az idő másképp telik — lassabban, pontosan úgy, ahogy a legjobb süteményeknek is kell.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRESS ===== -->
+<section id="press">
+  <div class="container">
+    <div class="press-intro">
+      <span class="section-label reveal" data-i18n="press_label">Sajtóvisszhang</span>
+      <h2 class="section-headline reveal reveal-delay-1" data-i18n="press_headline">Ahogy mások látnak minket.</h2>
+    </div>
+
+    <div class="press-outlets reveal reveal-delay-2" aria-label="Megjelenések">
+      <span class="press-outlet">Emirates Airlines</span>
+      <span class="press-dot" aria-hidden="true">·</span>
+      <span class="press-outlet">Street Kitchen</span>
+      <span class="press-dot" aria-hidden="true">·</span>
+      <span class="press-outlet">Kossuth Rádió</span>
+      <span class="press-dot" aria-hidden="true">·</span>
+      <span class="press-outlet">welovebalaton.hu</span>
+      <span class="press-dot" aria-hidden="true">·</span>
+      <span class="press-outlet">HelloBalaton</span>
+      <span class="press-dot" aria-hidden="true">·</span>
+      <span class="press-outlet">Turizmus Online</span>
+      <span class="press-dot" aria-hidden="true">·</span>
+      <span class="press-outlet">Kárpát-medencei Étterem Kalauz</span>
+      <span class="press-dot" aria-hidden="true">·</span>
+      <span class="press-outlet">nqv.hu</span>
+      <span class="press-dot" aria-hidden="true">·</span>
+      <span class="press-outlet">TripAdvisor</span>
+      <span class="press-dot" aria-hidden="true">·</span>
+      <span class="press-outlet">Erasmus+</span>
+    </div>
+
+    <div class="press-features">
+      <div class="press-feature reveal reveal-delay-1">
+        <p class="press-feature-source">Emirates Airlines</p>
+        <p class="press-feature-text" data-i18n="press_emirates">Az egymást követő Magyarország Tortája-győzelmek után az Emirates Airlines felkereste Szó Gellértet — és csokoládétortáit felszolgálták a légitársaság nemzetközi járatain. Egyes alkotások határa nem a határnál van.</p>
+      </div>
+      <div class="press-feature reveal reveal-delay-2">
+        <p class="press-feature-source">Street Kitchen · foodora</p>
+        <div class="press-award-badge">
+          <span class="press-award-year">2025</span>
+          <div>
+            <p class="press-award-title" data-i18n="press_sk_title">Az év péksége</p>
+            <p class="press-award-sub" data-i18n="press_sk_sub">51 jelölt közül. A Street Kitchen és a foodora Selection közös ítélete — egyértelmű.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="press-secondary">
+      <div class="press-secondary-item reveal reveal-delay-1">
+        <p class="press-secondary-source">Kárpát-medencei Étterem Kalauz</p>
+        <p class="press-secondary-score">5+</p>
+        <p class="press-secondary-text" data-i18n="press_guide">Dorozsmai Endre neves gasztronómiai kritikus minden kategóriában maximumpontnál is több ponttal értékelte a balatonkenesei helyszínt. Ritka kitüntetés az egész Balaton-parton.</p>
+      </div>
+      <div class="press-secondary-item reveal reveal-delay-2">
+        <p class="press-secondary-source">TripAdvisor · USA</p>
+        <p class="press-secondary-score">&#8220;&#8221;</p>
+        <p class="press-secondary-text" data-i18n="press_tripadvisor">Amerikai vendégeink, akik pékségeket és kávéházakat jártak be tucatnyi országban, a következőt írták: a G&D az élmezőnybe tartozik — bárhol a világon.</p>
+      </div>
+      <div class="press-secondary-item reveal reveal-delay-3">
+        <p class="press-secondary-source" data-i18n="press_jury_source">Magyarország Tortája — zsűri</p>
+        <p class="press-secondary-score">&#9733;</p>
+        <p class="press-secondary-text" data-i18n="press_jury">Egymást követő kétszeres győzelem után Szó Gellértet felkérték zsűritagnak — Sárközi Ákos Michelin-csillagos séf oldalán. Az ítélkezés oldalára állt.</p>
+      </div>
+    </div>
+
+    <blockquote class="press-quote reveal reveal-delay-3">
+      <p class="press-quote-text" data-i18n="press_quote">„Ezért a croissant-ért megéri Balatonkeneséig utazni."</p>
+      <cite class="press-quote-attr">welovebalaton.hu</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===== AWARDS ===== -->
+<section id="craft">
+  <div class="container">
+    <div class="awards-intro">
+      <span class="section-label reveal" data-i18n="craft_label" id="craft-heading">Díjaink</span>
+      <h2 class="section-headline reveal reveal-delay-1" data-i18n="craft_headline">Amit a zsűri is megmondott.</h2>
+    </div>
+    <div class="awards-list">
+
+      <!-- 2015 -->
+      <article class="award-entry reveal">
+        <div class="award-image-wrap">
+          <img src="assets/images/pannonhalmi sargabarack-painkas karamelltorta.jpg" alt="Pannonhalmi sárgabarack-pálinkás karamelltorta" loading="lazy">
+        </div>
+        <div class="award-text">
+          <div class="award-year-badge">
+            <span class="award-year">2015</span>
+            <span class="award-trophy" data-i18n="award_2015_award">Magyarország Tortája</span>
+          </div>
+          <div class="award-sep"></div>
+          <h3 class="award-name" data-i18n="award_2015_name">Pannonhalmi sárgabarack-pálinkás karamelltorta</h3>
+          <p class="award-desc" data-i18n="award_2015_desc">Ez a torta hozta meg az országos hírnevet a cukrászdának. Egy egyensúly a Pannonhalmi sárgabarack-pálinka mélysége és a karamell édessége között, amelyet azóta sem sikerült megismételni.</p>
+        </div>
+      </article>
+
+      <!-- 2016 -->
+      <article class="award-entry award-entry--reverse reveal">
+        <div class="award-image-wrap">
+          <img src="assets/images/orseg zold aranya.jpg" alt="Őrség zöld aranya" loading="lazy">
+        </div>
+        <div class="award-text">
+          <div class="award-year-badge">
+            <span class="award-year">2016</span>
+            <span class="award-trophy" data-i18n="award_2016_award">Magyarország Tortája</span>
+          </div>
+          <div class="award-sep"></div>
+          <h3 class="award-name" data-i18n="award_2016_name">Őrség zöld aranya</h3>
+          <p class="award-desc" data-i18n="award_2016_desc">A tökmagos-málnás édesség a mai napig az egyik legnépszerűbb termékük — sokak szerint minden idők egyik legjobb országtortája.</p>
+        </div>
+      </article>
+
+      <!-- 2017 -->
+      <article class="award-entry reveal">
+        <div class="award-image-wrap">
+          <img src="assets/images/crossiant.jpg" alt="Croissant — az ország legjobb croissant-ja" loading="lazy">
+        </div>
+        <div class="award-text">
+          <div class="award-year-badge">
+            <span class="award-year">2017</span>
+            <span class="award-trophy" data-i18n="award_2017_award">1. hely — Kenyérlelke</span>
+          </div>
+          <div class="award-sep"></div>
+          <h3 class="award-name" data-i18n="award_2017_name">Az ország legjobb croissant-ja</h3>
+          <p class="award-desc" data-i18n="award_2017_desc">A Kenyérlelke Fesztivál szakmai zsűrije ítélte oda nekik az első helyet. 72 óra laminálás, magyar vaj — és egy kéreg, amelyet hallani.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-header">
+      <span class="section-label reveal" data-i18n="menu_label">Napi Menü</span>
+      <h2 class="menu-headline reveal reveal-delay-1" data-i18n="menu_headline">Napi Menü</h2>
+      <p class="menu-date reveal reveal-delay-2" id="menuDate"></p>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" id="menuContent">
+      <div class="menu-fallback"><p data-i18n="menu_loading">Töltés…</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="section-label reveal" data-i18n="testimonials_label">Vendégeink mondták</span>
+      <h2 class="section-headline reveal reveal-delay-1" data-i18n="testimonials_headline">Ami visszahozza az embereket.</h2>
+    </div>
+  </div>
+  <div class="testimonials-columns">
+    <div class="testimonials-track-wrap">
+      <div class="testimonials-track testimonials-track--a" id="testimonialsTrackA"></div>
+    </div>
+    <div class="testimonials-track-wrap">
+      <div class="testimonials-track testimonials-track--b" id="testimonialsTrackB"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-intro">
+      <span class="section-label reveal" data-i18n="gallery_label">Galéria</span>
+      <h2 class="section-headline reveal reveal-delay-1" data-i18n="gallery_headline">Amit a szem lát, a kéz tudja.</h2>
+    </div>
+  </div>
+  <div class="gallery-scroll-wrap">
+    <div class="gallery-columns">
+      <!-- Column A: scrolls up -->
+      <div class="gallery-col gallery-col--a" id="galleryColA"></div>
+      <!-- Column B: scrolls down -->
+      <div class="gallery-col gallery-col--b" id="galleryColB"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCATION: SALGÓTARJÁN ===== -->
+<section class="location-section" id="salgotarjan">
+  <div class="location-bg" style="background-image:url('assets/images/salgotarjan.jpg')"></div>
+  <div class="location-overlay"></div>
+  <div class="location-content">
+    <span class="section-label reveal" data-i18n="loc_label">Helyszíneink</span>
+    <h2 class="location-name reveal reveal-delay-1" data-i18n="loc_salgo_name">Salgótarján</h2>
+    <p class="location-city reveal reveal-delay-2" data-i18n="loc_salgo_city">Salgótarján, Nógrád Vármegye</p>
+    <p class="location-desc reveal reveal-delay-3" data-i18n="loc_salgo_desc">A G&D kézművessége Észak-Magyarországon is otthonra talált. Salgótarjánban ugyanaz a hajnali ritual — ugyanaz a türelem, ugyanaz a precizitás, egyszer sütve naponta.</p>
+    <div class="reveal reveal-delay-4"><a href="#" class="btn-cta btn-cta--inverse" data-i18n="loc_discover">Felfedezem</a></div>
+  </div>
+</section>
+
+<!-- ===== LOCATION: GYÖNGYÖS ===== -->
+<section class="location-section" id="gyongyos">
+  <div class="location-bg" style="background-image:url('assets/images/gyongyos.jpg')"></div>
+  <div class="location-overlay"></div>
+  <div class="location-content">
+    <span class="section-label reveal" data-i18n="loc_label">Helyszíneink</span>
+    <h2 class="location-name reveal reveal-delay-1" data-i18n="loc_gyongyos_name">Gyöngyös</h2>
+    <p class="location-city reveal reveal-delay-2" data-i18n="loc_gyongyos_city">Gyöngyös, Heves Vármegye</p>
+    <p class="location-desc reveal reveal-delay-3" data-i18n="loc_gyongyos_desc">A Mátra lábánál, Gyöngyösön a reggeli croissant illata egészen természetesen vegyül a hegyi levegővel. Egy cím, ahol érdemes megállni — akár Balaton felé menet, akár visszafelé.</p>
+    <div class="reveal reveal-delay-4"><a href="#" class="btn-cta btn-cta--inverse" data-i18n="loc_discover">Felfedezem</a></div>
+  </div>
+</section>
+
+<!-- ===== BISTRO ===== -->
+<section id="bistro">
+  <div class="container">
+    <div class="bistro-inner">
+      <div class="bistro-text">
+        <span class="section-label reveal" data-i18n="bistro_label" id="bistro-heading">Bisztró</span>
+        <h2 class="bistro-headline reveal reveal-delay-1" data-i18n="bistro_headline">Nem csak reggel.</h2>
+        <p class="bistro-body reveal reveal-delay-2" data-i18n="bistro_body">A cukrászda reggelének minősége után a nap többi része is megér valamit. A G&amp;D Bisztró azt az igényességet viszi tovább ebédre és vacsorára, amelyet a croissant-ban megszoktak — friss, szezonális fogások, gondosan megkomponált tányérok, meleg terek. Foglaljon asztalt és töltse velünk az egész napot.</p>
+        <div class="bistro-features reveal reveal-delay-3">
+          <div class="bistro-feature" data-i18n="bistro_feat1">Ebéd</div>
+          <div class="bistro-feature" data-i18n="bistro_feat2">Vacsora</div>
+          <div class="bistro-feature" data-i18n="bistro_feat3">Privát rendezvény</div>
+        </div>
+        <div class="reveal reveal-delay-4">
+          <a href="#visit" class="btn-cta btn-cta--inverse" data-i18n="bistro_cta">Asztal foglalása</a>
+        </div>
+      </div>
+      <div class="bistro-visual" role="img" aria-label="G&D Bisztró"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISIT ===== -->
+<section id="visit">
+  <div class="container">
+    <div class="visit-grid">
+      <div class="visit-info">
+        <span class="section-label reveal" data-i18n="visit_label" id="visit-heading">Látogatás</span>
+        <h2 class="visit-shop-name reveal reveal-delay-1">Szó Ami Szó G&amp;D</h2>
+
+        <div class="visit-address-block reveal reveal-delay-2">
+          <a href="https://maps.google.com/?q=Balatonkenese,+%C3%93voda+utca+2.,+Hungary" target="_blank" rel="noopener" class="visit-address" data-i18n="visit_address">Balatonkenese, Óvoda utca 2.</a>
+          <div class="visit-contact">
+            <a href="tel:+36302036286">+36 30 203 6286</a>
+            <a href="mailto:hello@szoamiszocukraszda.hu">hello@szoamiszocukraszda.hu</a>
+          </div>
+        </div>
+
+        <div class="visit-hours-block reveal reveal-delay-3">
+          <p class="visit-hours-title" data-i18n="visit_hours_title">Nyitvatartás</p>
+          <table class="visit-hours-table">
+            <tbody>
+              <tr><td data-i18n="visit_mon_wed">Hétfő – Szerda</td><td class="closed" data-i18n="visit_closed">Zárva</td></tr>
+              <tr><td data-i18n="visit_thu_fri">Csütörtök – Péntek</td><td data-i18n="visit_thu_fri_hours">07:00 – 14:00</td></tr>
+              <tr><td data-i18n="visit_sat_sun">Szombat – Vasárnap</td><td data-i18n="visit_sat_sun_hours">07:00 – 15:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Social beautifully integrated -->
+        <div class="visit-social reveal reveal-delay-5">
+          <p class="visit-social-label" data-i18n="visit_social_title">Kövessen minket</p>
+          <div class="visit-social-links">
+            <a href="#" class="visit-social-link" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <div class="visit-social-link-text">
+                <p class="visit-social-link-name">Facebook</p>
+                <p class="visit-social-link-handle">Szó Ami Szó G&D Kézműves Cukrászda</p>
+              </div>
+              <span class="visit-social-arrow">&#8594;</span>
+            </a>
+            <a href="#" class="visit-social-link" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+              <div class="visit-social-link-text">
+                <p class="visit-social-link-name">Instagram</p>
+                <p class="visit-social-link-handle">@szoamiszo.cukraszda</p>
+              </div>
+              <span class="visit-social-arrow">&#8594;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="visit-map-col reveal reveal-delay-2">
+        <div class="visit-map-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2707.7!2d18.112!3d47.099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDA1JzU2LjQiTiAxOMKwMDYnNDMuMiJF!5e0!3m2!1shu!2shu!4v1"
+            title="Szó Ami Szó — Balatonkenese"
+            height="440"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-wordmark"><img src="assets/images/logo-light.png" alt="Szó Ami Szó G&D"></div>
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+    <div class="footer-copy"><p data-i18n="footer_copy">&copy; 2025 Szó Ami Szó.<br>Minden jog fenntartva.</p></div>
+  </div>
+  <div class="footer-lang">
+    <button data-footer-lang-btn="hu" onclick="setLang('hu');updateFooterLangBtns('hu')" class="active">HU</button>
+    <span class="lang-sep">/</span>
+    <button data-footer-lang-btn="en" onclick="setLang('en');updateFooterLangBtns('en')">EN</button>
+  </div>
+  <div class="footer-legal">
+    <a href="#" data-i18n="footer_privacy">Adatvédelmi nyilatkozat</a>
+    <span class="footer-legal-sep">·</span>
+    <a href="#" data-i18n="footer_terms">Általános Szerződési Feltételek</a>
+    <span class="footer-legal-sep">·</span>
+    <a href="#" data-i18n="footer_cookies">Sütik kezelése</a>
+  </div>
+</footer>
+
+<script>
+const SHEET_CSV_URL = 'REPLACE_WITH_GOOGLE_SHEETS_CSV_URL';
+
+/* ================================================================
+   TESTIMONIALS DATA
+================================================================ */
+const TESTIMONIALS = {
+  hu: [
+    { stars: 5, text: 'Évek óta járunk ide minden nyáron. A croissant itt a legjobb, amit valaha ettem Magyarországon — kívül ropogós, belül vajas és könnyű. Nem lehet visszatartani magunkat.', author: 'Kovács Réka — Budapest' },
+    { stars: 5, text: 'A rétes láttán azonnal tudtam, hogy ez más. Vékony, mint a selyem, a töltelék nem édes a kelleténél. Az anyuka receptje nyilvánvalóan megingathatatlan alapokon áll.', author: 'Horváth László — Veszprém' },
+    { stars: 5, text: 'Reggel 7-kor értünk oda, és már sütkérezett a nap a Balatonon. A meleg kakaós csiga és a kávé mellé nem kell semmi más. Tökéletes nyári reggel.', author: 'Németh Zsuzsa — Győr' },
+    { stars: 5, text: 'Kézműves pékség a javából — nem közhely, hanem tény. A kovászos kenyér héja egyenesen emlékezetes. Haza is viszünk minden alkalommal.', author: 'Fekete Gábor — Pécs' },
+    { stars: 5, text: 'A linzer olyan, amilyennek lennie kell: omló, nem túl édes, és pontosan olyan vastag, hogy minden egyes falat kielégítő legyen. Kötelező megállás a Balatonon.', author: 'Takács Ildikó — Székesfehérvár' },
+    { stars: 5, text: 'Ritkán adok ötcsillagot, de itt minden részlet megérdemli. A személyzet figyelmes, a sütemények frissek, és az egész hely valahogy meleget sugároz. Visszajövünk.', author: 'Balogh Péter — Debrecen' },
+  ],
+  en: [
+    { stars: 5, text: 'We have been coming here every summer for years. The croissant is the finest I have had in Hungary — shattering crust, buttery open crumb. Impossible to stop at one.', author: 'Sophie Müller — Vienna' },
+    { stars: 5, text: 'The strudel alone is worth the detour. Paper-thin pastry, balanced filling, nothing oversweetened. You can tell this recipe has never been tampered with.', author: 'James Whitfield — London' },
+    { stars: 5, text: 'We arrived at 7am to the sound of the lake waking up. A warm chocolate swirl and coffee on the terrace — nothing more is needed. An honest, perfect morning.', author: 'Anna Bergström — Stockholm' },
+    { stars: 5, text: 'The sourdough crust is genuinely memorable. Dense, aromatic, with real depth. We brought two loaves home and regretted not taking more.', author: 'Thomas Bauer — Munich' },
+    { stars: 5, text: 'The linzer cookies are exactly what they should be: crumbling, not too sweet, and each one feels considered. A mandatory stop on any Balaton visit.', author: 'Claire Dupont — Lyon' },
+    { stars: 5, text: 'Every detail is right — fresh stock, attentive staff, an atmosphere that manages to feel both refined and warm. We will be back without question.', author: 'Marco Ricci — Milan' },
+  ]
+};
+
+/* ================================================================
+   GALLERY DATA
+================================================================ */
+const GALLERY_ITEMS_A = [
+  { bg: '#5C3520', h: 380 }, { bg: '#3E2412', h: 440 }, { bg: '#6A4230', h: 300 },
+  { bg: '#5C3520', h: 380 }, { bg: '#3E2412', h: 440 }, { bg: '#6A4230', h: 300 },
+];
+const GALLERY_ITEMS_B = [
+  { bg: '#7E5040', h: 260 }, { bg: '#8E6048', h: 300 }, { bg: '#4E2E18', h: 360 },
+  { bg: '#7E5040', h: 260 }, { bg: '#8E6048', h: 300 }, { bg: '#4E2E18', h: 360 },
+];
+
+/* ================================================================
+   MENU PLACEHOLDER DATA
+================================================================ */
+const MENU_PLACEHOLDER = {
+  hu: [
+    {
+      category: 'Levesek',
+      items: [
+        { name: 'Sült paradicsomkrémleves', desc: 'Szezonális paradicsom, friss bazsalikom, pirított kovászos kenyér', price: '1 490', highlight: false },
+        { name: 'Gesztenyeleves', desc: 'Sült gesztenye, tejszín, kevés sherry', price: '1 690', highlight: true },
+      ]
+    },
+    {
+      category: 'Főételek',
+      items: [
+        { name: 'Konfitált kacsamell', desc: 'Szezonális zöldségek, pirított polenta, kakukkfű jus', price: '4 900', highlight: true },
+        { name: 'Balatoni szürkeharcsafilé', desc: 'Citromos vajmártás, szezonális saláta, saját sütésű kovászos kenyér', price: '4 200', highlight: false },
+        { name: 'Szezonális vegetáriánus fogás', desc: 'Mindig más — mindig a legjobb, ami éppen terem', price: '3 400', highlight: true },
+      ]
+    },
+    {
+      category: 'Desszertek',
+      items: [
+        { name: 'Napi G&D desszert', desc: 'Szó Gellért mai különlegessége — a cukrász dönt', price: '1 350', highlight: true },
+        { name: 'Friss gyümölcssaláta', desc: 'Szezonális gyümölcsök, citromfű, házi joghurt', price: '890', highlight: false },
+      ]
+    }
+  ],
+  en: [
+    {
+      category: 'Soups',
+      items: [
+        { name: 'Roasted tomato velouté', desc: 'Seasonal tomatoes, fresh basil, toasted sourdough', price: '1 490', highlight: false },
+        { name: 'Chestnut soup', desc: 'Roasted chestnut, cream, a touch of sherry', price: '1 690', highlight: true },
+      ]
+    },
+    {
+      category: 'Main Courses',
+      items: [
+        { name: 'Confit duck breast', desc: 'Seasonal vegetables, roasted polenta, thyme jus', price: '4 900', highlight: true },
+        { name: 'Lake Balaton wels catfish', desc: 'Lemon butter sauce, seasonal salad, house sourdough', price: '4 200', highlight: false },
+        { name: 'Seasonal vegetarian', desc: 'Always different — always the finest of the season', price: '3 400', highlight: true },
+      ]
+    },
+    {
+      category: 'Desserts',
+      items: [
+        { name: 'G&D daily dessert', desc: "Szó Gellért's creation of the day — the pastry chef decides", price: '1 350', highlight: true },
+        { name: 'Fresh fruit salad', desc: 'Seasonal fruits, lemon verbena, house yoghurt', price: '890', highlight: false },
+      ]
+    }
+  ]
+};
+
+/* ================================================================
+   LANGUAGE STRINGS
+================================================================ */
+const LANG = {
+  hu: {
+    nav_story:'Történetünk', nav_craft:'Díjaink', nav_menu:'Napi Menü', nav_gallery:'Galéria', nav_bistro:'Bisztró', nav_visit:'Látogatás',
+    hero_headline:'Amit a kezünk csinál, azt a szívünk érzi.',
+    hero_subline:'Kézműves sütemények a Balaton partján\u00A0— minden reggel frissen sütve.',
+    hero_cta:'Látogatás',
+    story_label:'Történetünk',
+    story_headline:'Egy anya és két fia. Egyetlen közös elhatározás.',
+    story_body1:'Katalin pszichológusként értett az emberek lelkéhez — és tudta, hogy az asztal az, ahol az érzelmek igazán megmutatkoznak. Két fia, Gellért és Dániel, ugyanezt a precizitást vitték tovább, csak lisztes kézzel: az egyik a cukrászat, a másik a kenyérsütés nyelvén. A G&D neve sem véletlen — Gellért és Dániel kezdőbetűi, egy közös műhely mögött, amelyet a Szó Ami Szó — az őszinteség, a minőség iránti elkötelezettség — szelleme tart össze.',
+    story_quote:'„A Szó Ami Szó nem reklámszöveg. Ígéret — amelyet minden reggel hajnalban be kell tartani."',
+    story_body2:'Hajnalban, amikor a Balaton még csendes, a dagasztás már elkezdődött. Minden tétel naponta egyszer készül — ami délelőtt nem fogy el, azt másnap nem kínáljuk újra. A kertben, fák árnyékában, ahol vendégeink reggeliznek, az idő másképp telik — lassabban, pontosan úgy, ahogy a legjobb süteményeknek is kell.',
+    press_label:'Sajtóvisszhang', press_headline:'Ahogy mások látnak minket.',
+    press_emirates:'Az egymást követő Magyarország Tortája-győzelmek után az Emirates Airlines felkereste Szó Gellértet — és csokoládétortáit felszolgálták a légitársaság nemzetközi járatain. Egyes alkotások határa nem a határnál van.',
+    press_sk_title:'Az év péksége', press_sk_sub:'51 jelölt közül. A Street Kitchen és a foodora Selection közös ítélete — egyértelmű.',
+    press_quote:'„Ezért a croissant-ért megéri Balatonkeneséig utazni."',
+    press_guide:'Dorozsmai Endre neves gasztronómiai kritikus minden kategóriában maximumpontnál is több ponttal értékelte a balatonkenesei helyszínt. Ritka kitüntetés az egész Balaton-parton.',
+    press_tripadvisor:'Amerikai vendégeink, akik pékségeket és kávéházakat jártak be tucatnyi országban, a következőt írták: a G&D az élmezőnybe tartozik — bárhol a világon.',
+    press_jury_source:'Magyarország Tortája — zsűri',
+    press_jury:'Egymást követő kétszeres győzelem után Szó Gellértet felkérték zsűritagnak — Sárközi Ákos Michelin-csillagos séf oldalán. Az ítélkezés oldalára állt.',
+    craft_label:'Elismeréseink', craft_headline:'Amit a zsűri is megmondott.',
+    award_2015_award:'Magyarország Tortája', award_2015_name:'Pannonhalmi sárgabarack-pálinkás karamelltorta', award_2015_desc:'Ez a torta hozta meg az országos hírnevet a cukrászdának. A Pannonhalmi sárgabarack-pálinka mélysége és a karamell egyensúlya — egy olyan alkotás, amelyet a szakma azóta sem felejtett el.',
+    award_2016_award:'Magyarország Tortája', award_2016_name:'Őrség zöld aranya', award_2016_desc:'A tökmagos-málnás torta máig az egyik legszeretettebb alkotásuk — sokak szerint az egyik legjobb Magyarország Tortája-győztes, amelyet valaha ítéltek oda.',
+    award_2017_award:'1. hely — Kenyérlelke', award_2017_name:'Az ország legjobb croissant-ja', award_2017_desc:'A Kenyérlelke Fesztivál szakmai zsűrije ítélte oda nekik az első helyet. 72 óra laminálás, magyar vaj — és egy kéreg, amelyet hallani.',
+    award_2025_award:'Az év péksége 2025', award_2025_name:'Street Kitchen / foodora Selection', award_2025_desc:'A G&D nyerte el az ország legjobb pékségének járó elismerést 51 jelölt közül. Az ítélet egyértelmű volt.',
+    bistro_label:'Bisztró', bistro_headline:'Nem csak reggel.', bistro_body:'A cukrászda reggelének minősége után a nap többi része is megér valamit. A G&amp;D Bisztró azt az igényességet viszi tovább ebédre és vacsorára, amelyet a croissant-ban megszoktak — friss, szezonális fogások, gondosan megkomponált tányérok, meleg terek. Foglaljon asztalt és töltse velünk az egész napot.',
+    bistro_feat1:'Ebéd', bistro_feat2:'Vacsora', bistro_feat3:'Privát rendezvény', bistro_cta:'Asztal foglalása',
+    craft_croissant_name:'Croissant', craft_croissant_desc:'72 óra laminálás. Magyar vaj. Egy kéreg, amelyet hallani.',
+    craft_kakao_name:'Kakaós csiga', craft_kakao_desc:'Puha, sötét, és határeset. Az a fajta, amit állva eszel meg.',
+    craft_retes_name:'Rétes', craft_retes_desc:'Az ő receptje. Változatlan. Nem modernizálva.',
+    craft_kenyer_name:'Kovászos kenyér', craft_kenyer_desc:'Három napos kovász. Öntöttvas. Türelem.',
+    craft_linzer_name:'Linzer', craft_linzer_desc:'Az a linzer, amiért visszajönnek.',
+    craft_sezon_name:'Szezonális különlegesség', craft_sezon_desc:'Mindig más. Mindig aktuális. Mindig friss.',
+    menu_label:'Napi Menü', menu_headline:'Napi Menü', menu_loading:'Töltés\u2026',
+    menu_fallback:'A mai menüért kérjük látogasson el <a href="#" target="_blank" rel="noopener">Facebook oldalunkra</a>.',
+    testimonials_label:'Vendégeink mondták', testimonials_headline:'Ami visszahozza az embereket.',
+    gallery_label:'Galéria', gallery_headline:'Amit a szem lát, a kéz tudja.',
+    loc_label:'Helyszíneink', loc_discover:'Felfedezem',
+    loc_salgo_name:'Salgótarján', loc_salgo_city:'Salgótarján, Nógrád Vármegye',
+    loc_salgo_desc:'A G&D kézművessége Észak-Magyarországon is otthonra talált. Salgótarjánban ugyanaz a hajnali rituálé — ugyanaz a türelem, ugyanaz a precizitás, naponta egyszer sütve.',
+    loc_gyongyos_name:'Gyöngyös', loc_gyongyos_city:'Gyöngyös, Heves Vármegye',
+    loc_gyongyos_desc:'A Mátra lábánál, Gyöngyösön a reggeli croissant illata egészen természetesen vegyül a hegyi levegővel. Egy cím, ahol érdemes megállni — akár Balaton felé menet, akár visszafelé.',
+    visit_label:'Látogatás',
+    visit_address:'Balatonkenese, Óvoda utca 2.',
+    visit_hours_title:'Nyitvatartás',
+    visit_mon_wed:'Hétfő – Szerda', visit_closed:'Zárva',
+    visit_thu_fri:'Csütörtök – Péntek', visit_thu_fri_hours:'07:00 – 14:00',
+    visit_sat_sun:'Szombat – Vasárnap', visit_sat_sun_hours:'07:00 – 15:00',
+    visit_social_title:'Kövessen minket',
+    footer_copy:'&copy; 2025 Szó Ami Szó.<br>Minden jog fenntartva.',
+    footer_privacy:'Adatvédelmi nyilatkozat',
+    footer_terms:'Általános Szerződési Feltételek',
+    footer_cookies:'Sütik kezelése',
+  },
+  en: {
+    nav_story:'Our Story', nav_craft:'Awards', nav_menu:"Today's Menu", nav_gallery:'Gallery', nav_bistro:'Bistro', nav_visit:'Visit Us',
+    hero_headline:'Made by hand. Felt by heart.',
+    hero_subline:'Artisanal pastries on the shores of Lake Balaton\u00A0— baked fresh, every morning.',
+    hero_cta:'Visit Us',
+    story_label:'Our Story',
+    story_headline:'A mother and her two sons. One shared conviction.',
+    story_body1:'Katalin trained as a psychologist — someone who understood, deeply, how people feel. She knew that the most honest emotions are drawn out at the table. Her two sons, Gellért and Dániel, carried that same precision forward, each in his own language: one in the art of pâtisserie, the other in the craft of bread. The name G&D is not arbitrary — it stands for Gellért and Dániel, behind a single shared workshop, held together by the spirit of Szó Ami Szó: honesty, and an uncompromising commitment to quality.',
+    story_quote:'"Szó Ami Szó is not a tagline. It is a promise — kept every morning before dawn."',
+    story_body2:'Before the lake wakes up, the work has already begun. Every batch is made once a day — what does not sell by midday will not be offered again the next morning. In the garden, under the shade of old trees where guests linger over breakfast, time moves differently — more slowly, exactly as the finest pastries require.',
+    press_label:'As featured in', press_headline:'How others see us.',
+    press_emirates:'Following his consecutive Hungary\'s Cake of the Year victories, Emirates Airlines approached Szó Gellért — and his chocolate cakes were served aboard their international flights. Some things travel further than their maker expected.',
+    press_sk_title:'Bakery of the Year', press_sk_sub:'From 51 nominees. The joint verdict of Street Kitchen and foodora Selection — unanimous.',
+    press_quote:'"This is the croissant worth travelling to Balatonkenese for."',
+    press_guide:'Prominent food critic Dorozsmai Endre awarded the maximum score — and then some — in every category to the Balatonkenese location. A rare distinction on the entire Balaton shore.',
+    press_tripadvisor:'Visiting guests from the US, who had sampled bakeries and coffee houses across a dozen countries, wrote that G&D ranks among the finest — anywhere in the world.',
+    press_jury_source:"Hungary's Cake of the Year — jury",
+    press_jury:'After his back-to-back victories, Szó Gellért was invited to serve as jury member — beside Michelin-starred chef Sárközi Ákos of Borkonyha. He moved to the judging side.',
+    craft_label:'Recognition', craft_headline:'What the jury confirmed.',
+    award_2015_award:"Hungary's Cake of the Year", award_2015_name:'Pannonhalmi apricot brandy caramel cake', award_2015_desc:'This was the cake that brought the bakery national recognition. The depth of Pannonhalmi apricot pálinka balanced against the sweetness of caramel — a creation the profession has not forgotten.',
+    award_2016_award:"Hungary's Cake of the Year", award_2016_name:'Őrség Green Gold', award_2016_desc:'The pumpkin seed and raspberry cake remains one of their most beloved to this day — widely considered one of the finest Hungary\'s Cake of the Year winners ever awarded.',
+    award_2017_award:'1st Place — Kenyérlelke', award_2017_name:"Hungary's finest croissant", award_2017_desc:'The professional jury of the Kenyérlelke Festival awarded them first place. 72 hours of lamination, Hungarian butter — and a crust you can hear.',
+    award_2025_award:'Bakery of the Year 2025', award_2025_name:'Street Kitchen / foodora Selection', award_2025_desc:"G&D was awarded Hungary's best bakery from 51 nominees. The verdict was unanimous.",
+    bistro_label:'Bistro', bistro_headline:'Not only mornings.', bistro_body:'After the morning of the pâtisserie, the rest of the day deserves equal attention. The G&amp;D Bistro carries the same standard forward — fresh, seasonal dishes, carefully composed plates. For lunch and dinner. Book a table and spend the whole day with us.',
+    bistro_feat1:'Lunch', bistro_feat2:'Dinner', bistro_feat3:'Private events', bistro_cta:'Book a Table',
+    craft_croissant_name:'Croissant', craft_croissant_desc:'72 hours of lamination. Hungarian butter. A crust you can hear.',
+    craft_kakao_name:'Chocolate swirl', craft_kakao_desc:'Soft, dark, and borderline dangerous. The kind you eat standing up.',
+    craft_retes_name:'Strudel', craft_retes_desc:'Her recipe. Not adjusted. Not modernized.',
+    craft_kenyer_name:'Sourdough bread', craft_kenyer_desc:'Three-day starter. Cast iron. Patience.',
+    craft_linzer_name:'Linzer cookies', craft_linzer_desc:'The linzer people come back for.',
+    craft_sezon_name:'Seasonal special', craft_sezon_desc:'Always different. Always seasonal. Always fresh.',
+    menu_label:"Today's Menu", menu_headline:"Today's Menu", menu_loading:'Loading\u2026',
+    menu_fallback:'For today\'s menu, please visit our <a href="#" target="_blank" rel="noopener">Facebook page</a>.',
+    testimonials_label:'What our guests say', testimonials_headline:'What brings people back.',
+    gallery_label:'Gallery', gallery_headline:'What the eye sees, the hand already knows.',
+    loc_label:'Our Locations', loc_discover:'Explore',
+    loc_salgo_name:'Salgótarján', loc_salgo_city:'Salgótarján, Nógrád Vármegye',
+    loc_salgo_desc:'The craft of G&D has found a home in Northern Hungary. In Salgótarján, the same pre-dawn ritual — the same patience, the same precision, baked once a day.',
+    loc_gyongyos_name:'Gyöngyös', loc_gyongyos_city:'Gyöngyös, Heves Vármegye',
+    loc_gyongyos_desc:'At the foot of the Mátra hills, the morning scent of croissant mingles naturally with mountain air. A destination worth stopping at — on the way to Balaton, or back.',
+    visit_label:'Visit Us',
+    visit_address:'Balatonkenese, Óvoda utca 2.',
+    visit_hours_title:'Opening Hours',
+    visit_mon_wed:'Monday – Wednesday', visit_closed:'Closed',
+    visit_thu_fri:'Thursday – Friday', visit_thu_fri_hours:'7:00 AM – 2:00 PM',
+    visit_sat_sun:'Saturday – Sunday', visit_sat_sun_hours:'7:00 AM – 3:00 PM',
+    visit_social_title:'Follow us',
+    footer_copy:'&copy; 2025 Szó Ami Szó.<br>All rights reserved.',
+    footer_privacy:'Privacy Policy',
+    footer_terms:'Terms & Conditions',
+    footer_cookies:'Cookie Settings',
+  }
+};
+
+let currentLang = 'hu';
+let cachedMenuData = null;
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (LANG[lang][key] !== undefined) el.innerHTML = LANG[lang][key];
+  });
+  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('[data-lang-btn]').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang));
+  updateMobileLangBtns(lang);
+  updateFooterLangBtns(lang);
+  updateMenuDate();
+  renderMenuPlaceholder();
+  renderTestimonials();
+}
+function updateMobileLangBtns(lang){document.querySelectorAll('[data-mobile-lang-btn]').forEach(b=>b.classList.toggle('active',b.getAttribute('data-mobile-lang-btn')===lang))}
+function updateFooterLangBtns(lang){document.querySelectorAll('[data-footer-lang-btn]').forEach(b=>b.classList.toggle('active',b.getAttribute('data-footer-lang-btn')===lang))}
+
+const HU_MONTHS=['január','február','március','április','május','június','július','augusztus','szeptember','október','november','december'];
+function formatDate(lang){const n=new Date();return lang==='hu'?`${n.getFullYear()}. ${HU_MONTHS[n.getMonth()]} ${n.getDate()}.`:n.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}
+function updateMenuDate(){const el=document.getElementById('menuDate');if(el)el.textContent=formatDate(currentLang)}
+
+/* ================================================================
+   MENU RENDER
+================================================================ */
+function renderMenuPlaceholder() {
+  const data = MENU_PLACEHOLDER[currentLang];
+  const content = document.getElementById('menuContent');
+  if (!content) return;
+  let html = '';
+  data.forEach(cat => {
+    html += `<div class="menu-category"><p class="menu-category-header">${cat.category}</p>`;
+    cat.items.forEach(item => {
+      html += `<div class="menu-item"><div>`;
+      html += `<div class="menu-item-left">`;
+      if (item.highlight) html += `<span class="menu-item-highlight">&diams;</span>`;
+      html += `<span class="menu-item-name">${item.name}</span></div>`;
+      if (item.desc) html += `<p class="menu-item-desc">${item.desc}</p>`;
+      html += `</div><span class="menu-item-price">${item.price}&nbsp;Ft</span></div>`;
+    });
+    html += `</div>`;
+  });
+  content.innerHTML = html;
+}
+
+async function fetchMenu() {
+  if (SHEET_CSV_URL === 'REPLACE_WITH_GOOGLE_SHEETS_CSV_URL') { renderMenuPlaceholder(); return; }
+  try {
+    const res = await fetch(SHEET_CSV_URL);
+    if (!res.ok) throw new Error();
+    const text = await res.text();
+    cachedMenuData = parseCSV(text);
+    renderMenu(cachedMenuData);
+  } catch { renderMenuPlaceholder(); }
+}
+
+function parseCSV(text) {
+  const rows = []; const lines = text.trim().split('\n');
+  lines.forEach(line => { const cols=[]; let cur='',inQ=false;
+    for(let i=0;i<line.length;i++){const c=line[i];if(c==='"'){if(inQ&&line[i+1]==='"'){cur+='"';i++}else inQ=!inQ}else if(c===','&&!inQ){cols.push(cur.trim());cur=''}else cur+=c}
+    cols.push(cur.trim()); rows.push(cols); });
+  return rows;
+}
+
+function renderMenu(rows) {
+  const content = document.getElementById('menuContent'); if(!content) return;
+  const h = rows[0].map(x=>x.toLowerCase().trim());
+  const idx={cat:h.indexOf('category'),nhu:h.indexOf('name_hu'),nen:h.indexOf('name_en'),dhu:h.indexOf('description_hu'),den:h.indexOf('description_en'),price:h.indexOf('price'),avail:h.indexOf('available'),hi:h.indexOf('highlight'),allerg:h.indexOf('allergens')};
+  const lang=currentLang; const nk=lang==='hu'?idx.nhu:idx.nen; const dk=lang==='hu'?idx.dhu:idx.den;
+  const groups={};
+  rows.slice(1).forEach(r=>{if(!r[idx.avail]||r[idx.avail].toUpperCase()!=='TRUE')return;const c=(r[idx.cat]||'Egyéb').trim();if(!groups[c])groups[c]=[];groups[c].push(r)});
+  if(!Object.keys(groups).length){renderMenuPlaceholder();return}
+  let html='';
+  Object.entries(groups).forEach(([cat,items])=>{html+=`<div class="menu-category"><p class="menu-category-header">${esc(cat)}</p>`;items.forEach(r=>{const hi=r[idx.hi]&&r[idx.hi].toUpperCase()==='TRUE';const pr=r[idx.price]?esc(r[idx.price].trim()):'';const al=r[idx.allerg]?esc(r[idx.allerg].trim()):'';html+=`<div class="menu-item"><div><div class="menu-item-left">${hi?'<span class="menu-item-highlight">&diams;</span>':''}<span class="menu-item-name">${esc(r[nk]||'')}</span></div>${r[dk]?`<p class="menu-item-desc">${esc(r[dk])}</p>`:''}${al?`<p class="menu-item-allergens">${al}</p>`:''}</div>${pr?`<span class="menu-item-price">${pr}&nbsp;Ft</span>`:''}</div>`});html+='</div>'});
+  content.innerHTML=html;content.className='menu-card reveal is-visible';
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+/* ================================================================
+   TESTIMONIALS RENDER
+================================================================ */
+function renderTestimonials() {
+  const trackA = document.getElementById('testimonialsTrackA');
+  const trackB = document.getElementById('testimonialsTrackB');
+  if (!trackA || !trackB) return;
+  const data = TESTIMONIALS[currentLang];
+  const half = Math.ceil(data.length / 2);
+  const groupA = data.slice(0, half);
+  const groupB = data.slice(half);
+  function cardHTML(t) {
+    return `<div class="testimonial-card"><div class="testimonial-stars">${'★'.repeat(t.stars)}</div><p class="testimonial-text">${t.text}</p><p class="testimonial-author">${t.author}</p></div>`;
+  }
+  const doubledA = [...groupA, ...groupA];
+  const doubledB = [...groupB, ...groupB];
+  trackA.innerHTML = doubledA.map(cardHTML).join('');
+  trackB.innerHTML = doubledB.map(cardHTML).join('');
+}
+
+/* ================================================================
+   GALLERY RENDER — auto-loads from assets/gallery/
+================================================================ */
+const GALLERY_HEIGHTS = [380, 440, 300, 360, 260, 420, 320, 400, 280, 340];
+const GALLERY_PLACEHOLDERS = [
+  {bg:'#5C3520',h:380},{bg:'#3E2412',h:440},{bg:'#6A4230',h:300},
+  {bg:'#7E5040',h:260},{bg:'#8E6048',h:300},{bg:'#4E2E18',h:360},
+  {bg:'#5C3520',h:380},{bg:'#3E2412',h:440},{bg:'#6A4230',h:300},
+  {bg:'#7E5040',h:260},{bg:'#8E6048',h:300},{bg:'#4E2E18',h:360},
+];
+
+function renderGalleryFromItems(colA, colB, itemsA, itemsB) {
+  colA.innerHTML = [...itemsA, ...itemsA].join('');
+  colB.innerHTML = [...itemsB, ...itemsB].join('');
+}
+
+function renderGallery() {
+  const colA = document.getElementById('galleryColA');
+  const colB = document.getElementById('galleryColB');
+  if (!colA || !colB) return;
+  const itemsA = [], itemsB = [];
+  GALLERY_PLACEHOLDERS.forEach((g, i) => {
+    const html = `<div class="gallery-item"><div style="background-color:${g.bg};height:${g.h}px;" role="img" aria-label="Galéria"></div></div>`;
+    (i % 2 === 0 ? itemsA : itemsB).push(html);
+  });
+  renderGalleryFromItems(colA, colB, itemsA, itemsB);
+}
+
+async function loadGalleryImages() {
+  const colA = document.getElementById('galleryColA');
+  const colB = document.getElementById('galleryColB');
+  if (!colA || !colB) return;
+  try {
+    const res = await fetch('assets/gallery/');
+    if (!res.ok) throw new Error();
+    const html = await res.text();
+    const matches = [...html.matchAll(/href="([^"?#]+\.(?:jpg|jpeg|png|webp|avif))"/gi)];
+    const files = [...new Set(matches.map(m => m[1].split('/').pop()).filter(Boolean))];
+    if (!files.length) throw new Error();
+    const itemsA = [], itemsB = [];
+    files.forEach((f, i) => {
+      const h = GALLERY_HEIGHTS[i % GALLERY_HEIGHTS.length];
+      const html = `<div class="gallery-item"><div style="background-image:url('assets/gallery/${encodeURIComponent(f)}');background-size:cover;background-position:center;height:${h}px;" role="img" aria-label="Galéria"></div></div>`;
+      (i % 2 === 0 ? itemsA : itemsB).push(html);
+    });
+    if (itemsB.length === 0) itemsB.push(itemsA[0]); // ensure both columns have content
+    renderGalleryFromItems(colA, colB, itemsA, itemsB);
+  } catch {
+    renderGallery();
+  }
+}
+
+/* ================================================================
+   NAV
+================================================================ */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 80); }, { passive: true });
+
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+navToggle.addEventListener('click', () => {
+  const open = !mobileMenu.classList.contains('open');
+  mobileMenu.classList.toggle('open', open);
+  navToggle.classList.toggle('open', open);
+  navToggle.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+function closeMobileMenu(){mobileMenu.classList.remove('open');navToggle.classList.remove('open');navToggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+document.addEventListener('keydown', e => { if(e.key==='Escape'&&mobileMenu.classList.contains('open'))closeMobileMenu() });
+
+/* ================================================================
+   SCROLL REVEAL
+================================================================ */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('is-visible');revealObserver.unobserve(e.target)} });
+}, { threshold: 0.10 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ================================================================
+   INIT
+================================================================ */
+updateMenuDate();
+fetchMenu();
+renderTestimonials();
+loadGalleryImages();
+</script>
+</body>
+</html>
