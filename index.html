@@ -47,7 +47,7 @@
     }
 
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;font-size:16px}
+    html{font-size:16px}
     body{background-color:var(--color-bg-primary);color:var(--color-text-primary);font-family:var(--font-body);font-size:var(--text-body);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     img,iframe{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
@@ -256,11 +256,11 @@
     .testimonials-header{text-align:center;margin-bottom:clamp(3rem,6vw,4.5rem)}
     .testimonials-columns{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-gap);padding:0 var(--container-padding);max-width:var(--container-max);margin:0 auto}
     .testimonials-track-wrap{height:520px;overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,transparent 0%,black 12%,black 88%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 12%,black 88%,transparent 100%)}
-    .testimonials-track{display:flex;flex-direction:column;gap:1.5rem}
+    .testimonials-track{display:flex;flex-direction:column;gap:1.5rem;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
     .testimonials-track--a{animation:scrollTestimonials 70s linear infinite}
     .testimonials-track--b{animation:scrollTestimonialsDown 55s linear infinite}
-    @keyframes scrollTestimonials{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
-    @keyframes scrollTestimonialsDown{0%{transform:translateY(-50%)}100%{transform:translateY(0)}}
+    @keyframes scrollTestimonials{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(0,-50%,0)}}
+    @keyframes scrollTestimonialsDown{0%{transform:translate3d(0,-50%,0)}100%{transform:translate3d(0,0,0)}}
     .testimonial-card{background:var(--color-bg-secondary);border:var(--border-thin);border-radius:var(--radius-soft);padding:2rem 2.25rem;width:100%}
     .testimonial-stars{color:var(--color-gold);font-size:.8rem;letter-spacing:.2em;margin-bottom:1rem}
     .testimonial-text{font-family:var(--font-body);font-size:clamp(1rem,1.6vw,1.15rem);font-style:italic;line-height:1.85;color:var(--color-text-primary)}
@@ -273,12 +273,12 @@
     .gallery-scroll-wrap{height:clamp(600px,78vh,960px);overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,transparent 0%,black 18%,black 82%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 18%,black 82%,transparent 100%)}
     /* Two columns running in opposite directions */
     .gallery-columns{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-gap);height:100%}
-    .gallery-col{display:flex;flex-direction:column;gap:var(--space-gap)}
+    .gallery-col{display:flex;flex-direction:column;gap:var(--space-gap);will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
     .gallery-col--a{animation:scrollGalleryUp 48s linear infinite}
     .gallery-col--b{animation:scrollGalleryDown 58s linear infinite}
 
-    @keyframes scrollGalleryUp{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
-    @keyframes scrollGalleryDown{0%{transform:translateY(-50%)}100%{transform:translateY(0)}}
+    @keyframes scrollGalleryUp{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(0,-50%,0)}}
+    @keyframes scrollGalleryDown{0%{transform:translate3d(0,-50%,0)}100%{transform:translate3d(0,0,0)}}
     .gallery-item{border-radius:var(--radius-soft);overflow:hidden;flex-shrink:0}
     .gallery-item div{width:100%;aspect-ratio:7/5;background-size:cover;background-position:center;transition:transform var(--transition-slow),filter var(--transition-slow)}
     .gallery-item:hover div{transform:scale(1.02);filter:brightness(1.06)}
@@ -370,7 +370,7 @@
     .footer-legal a:hover{color:rgba(237,232,220,.4)}
     .footer-legal-sep{font-family:var(--font-mono);font-size:.6rem;color:rgba(237,232,220,.08);pointer-events:none}
 
-    #menu,#gallery,#bistro,#visit{content-visibility:auto}
+    #menu,#bistro,#visit{content-visibility:auto}
   </style>
 </head>
 <body>
@@ -913,7 +913,7 @@ const MENU_PLACEHOLDER = {
 ================================================================ */
 const LANG = {
   hu: {
-    nav_story:'Történetünk', nav_craft:'Elismerések', nav_menu:'Napi Menü', nav_gallery:'Galéria', nav_bistro:'Bisztró', nav_visit:'Látogatás',
+    nav_story:'Történetünk', nav_awards:'Elismerések', nav_menu:'Napi Menü', nav_gallery:'Galéria', nav_bistro:'Bisztró', nav_visit:'Látogatás',
     hero_headline:'Frissen sütve. Minden reggel.',
     hero_subline:'Kézműves sütemények és kovászos kenyerek a Balatonon — minden reggel, egyszer sütve.',
     hero_cta:'Látogatás',
@@ -965,7 +965,7 @@ const LANG = {
     footer_cookies:'Sütik kezelése',
   },
   en: {
-    nav_story:'Our Story', nav_craft:'Awards', nav_menu:"Today's Menu", nav_gallery:'Gallery', nav_bistro:'Bistro', nav_visit:'Visit',
+    nav_story:'Our Story', nav_awards:'Recognition', nav_menu:"Today's Menu", nav_gallery:'Gallery', nav_bistro:'Bistro', nav_visit:'Visit',
     hero_headline:'Baked fresh. Every morning.',
     hero_subline:'Artisanal pastries and sourdough bread on Lake Balaton\u00A0— baked once, every morning.',
     hero_cta:'Visit Us',
@@ -1115,8 +1115,12 @@ function renderTestimonials() {
   }
   const doubledA = [...groupA, ...groupA];
   const doubledB = [...groupB, ...groupB];
+  /* Pause, replace, reflow, then resume — prevents animation jump on re-render */
+  [trackA, trackB].forEach(el => { el.style.animationPlayState = 'paused'; });
   trackA.innerHTML = doubledA.map(cardHTML).join('');
   trackB.innerHTML = doubledB.map(cardHTML).join('');
+  void trackA.offsetHeight; /* force reflow so browser registers new DOM before resuming */
+  [trackA, trackB].forEach(el => { el.style.animationPlayState = ''; });
 }
 
 /* ================================================================
@@ -1165,6 +1169,35 @@ navToggle.addEventListener('click', () => {
 function closeMobileMenu(){mobileMenu.classList.remove('open');navToggle.classList.remove('open');nav.classList.remove('nav-menu-open');navToggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
 document.addEventListener('keydown', e => { if(e.key==='Escape'&&mobileMenu.classList.contains('open'))closeMobileMenu() });
 
+/* Sophisticated smooth scroll on nav link clicks — 1.2s duration with easing */
+function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+function smoothScrollTo(target, duration = 1200) {
+  const targetEl = typeof target === 'string' ? document.querySelector(target) : target;
+  if (!targetEl) return;
+  const startPos = window.scrollY;
+  const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - 80;
+  const distance = targetPos - startPos;
+  const startTime = performance.now();
+  function scroll(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = easeInOutCubic(progress);
+    window.scrollTo(0, startPos + distance * ease);
+    if (progress < 1) requestAnimationFrame(scroll);
+  }
+  requestAnimationFrame(scroll);
+}
+/* Override default hash navigation with smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+    if (href === '#' || !document.querySelector(href)) return;
+    e.preventDefault();
+    smoothScrollTo(href);
+    history.pushState(null, '', href);
+  });
+});
+
 /* ================================================================
    SCROLL REVEAL
 ================================================================ */
@@ -1179,8 +1212,20 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 setLang('hu');
 updateMenuDate();
 fetchMenu();
-renderTestimonials();
 loadGalleryImages();
+
+/* Restart infinite animations after tab becomes visible again (browsers pause them on hidden tabs) */
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    ['.gallery-col--a','.gallery-col--b','.testimonials-track--a','.testimonials-track--b'].forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        el.style.animationPlayState = 'paused';
+        void el.offsetWidth; /* force reflow */
+        el.style.animationPlayState = '';
+      });
+    });
+  }
+});
 </script>
 </body>
 </html>
