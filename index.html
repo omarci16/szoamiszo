@@ -1033,7 +1033,7 @@ function setLang(lang) {
   updateMobileLangBtns(lang);
   updateFooterLangBtns(lang);
   updateMenuDate();
-  renderMenuPlaceholder();
+  if (cachedMenuData) renderMenu(cachedMenuData); else renderMenuPlaceholder();
   renderTestimonials();
 }
 function updateMobileLangBtns(lang){document.querySelectorAll('[data-mobile-lang-btn]').forEach(b=>b.classList.toggle('active',b.getAttribute('data-mobile-lang-btn')===lang))}
